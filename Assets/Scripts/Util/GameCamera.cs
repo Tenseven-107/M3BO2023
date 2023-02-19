@@ -16,7 +16,10 @@ public class GameCamera : MonoBehaviour
     
     void FixedUpdate()
     {
-        setCamPos();
+        if (player != null)
+        {
+            setCamPos();
+        }
     }
 
 

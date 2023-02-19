@@ -16146,6 +16146,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3256804387860038412, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
+      propertyPath: team
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714394270940275850, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
+      propertyPath: spread
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714394270940275850, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
+      propertyPath: bullets
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714394270940275850, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
+      propertyPath: cooldown
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714394270940275850, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
+      propertyPath: max_spread
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6281231266242129427, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -16164,6 +16184,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6281231266242129427, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281231266242129427, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6281231266734250394, guid: c77153a012c860f4da30350d3d30eea1, type: 3}
