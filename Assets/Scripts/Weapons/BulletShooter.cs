@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Transform fire_trans;
+    float fire_rot;
+    public GameObject bullet;
+
+
+    private void Start()
     {
-        
+        fire_trans = transform;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void fire(Vector3 fire_vec)
     {
-        
+        Instantiate(bullet, fire_trans.position, fire_trans.rotation);
     }
 }

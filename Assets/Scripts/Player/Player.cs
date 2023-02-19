@@ -17,8 +17,9 @@ public class Player : MonoBehaviour
     public float fuel = 100;
     public float max_fuel = 100;
     public float boost_modifier = 2.5f;
-    bool boosting = false;
     bool recharging = false;
+
+    bool facing_right = true;
 
     // Combat vars
     public int hp = 3;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     public float dodge_time = 0.5f;
     float lastTimeout;
 
-    //Weapon wp; add logic later
+    GameObject wp;
 
     
     // Set up
@@ -43,7 +44,8 @@ public class Player : MonoBehaviour
         velocity = Vector2.zero;
 
         rb = GetComponent<Rigidbody2D>();
-        sprite= GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
+        wp = transform.GetChild(0).gameObject;
     }
 
 
@@ -75,13 +77,13 @@ public class Player : MonoBehaviour
             velocity.x = Mathf.Clamp(velocity.x, -max_speed, max_speed);
             velocity.y = Mathf.Clamp(velocity.y, -max_speed, max_speed);
 
-            if (velocity.x < 0)
+            if (velocity.x > 0 && !facing_right)
             {
-                sprite.flipX= true;
+                flipX();
             }
-            else if (velocity.x > 0)
+            else if (velocity.x < 0 && facing_right)
             {
-                sprite.flipX = false;
+                flipX();
             }
         } 
         else
@@ -94,17 +96,15 @@ public class Player : MonoBehaviour
         if (Input.GetKey("l") && fuel > 0 && !recharging)
         {
             velocity.x *= boost_modifier;
-            boosting = true;
             fuel -= 1;
 
             fuel = Mathf.Clamp(fuel, 0, max_fuel);
             if (fuel <= 0) 
             {
-                boosting = false;
                 recharging = true;
             }
         }
-        if (!boosting && fuel < max_fuel)
+        if (fuel < max_fuel)
         {
             fuel += 0.5f;
             if (fuel >= max_fuel) 
@@ -118,6 +118,12 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
+
+    void flipX()
+    {
+        facing_right = !facing_right;
+        transform.Rotate(0, 180, 0);
+    }
 
 
     // Handle hits
