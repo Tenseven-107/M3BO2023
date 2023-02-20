@@ -48,4 +48,26 @@ public class BulletShooter : MonoBehaviour
             Instantiate(bullet, fire_trans.position, fire_trans.rotation);
         }
     }
+
+    public void fireCircle()
+    {
+        if (Time.time - last < cooldown)
+        {
+            return;
+        }
+        last = Time.time;
+
+        float rot = 360 / bullets;
+        float current_rot;
+
+        for (int i = 0; i < bullets; i++)
+        {
+            current_rot = fire_trans.eulerAngles.z;
+            float new_rot = current_rot + rot;
+            fire_trans.transform.eulerAngles = new Vector3(0, 0, new_rot);
+
+            Instantiate(bullet, fire_trans.position, fire_trans.rotation);
+            print(new_rot);
+        }
+    }
 }
