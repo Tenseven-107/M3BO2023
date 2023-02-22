@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3532ddd96c7e7b54ab4006da14d283c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.05
+  cooldown: 0.045
   bullets: 1
   has_spread: 1
   spread: 2

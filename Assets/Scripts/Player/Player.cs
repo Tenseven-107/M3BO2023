@@ -130,17 +130,4 @@ public class Player : MonoBehaviour
             wp.fire();
         }
     }
-
-
-
-    // Timer time out
-    // make timer
-    //void timeOut(float time)
-    //{
-        //if (Time.time - lastTimeout < time)
-        //{
-            //return;
-        //}
-        //lastTimeout = Time.time;
-    //}
 }

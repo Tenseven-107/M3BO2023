@@ -34,6 +34,8 @@ public class Entity : MonoBehaviour
 
     void die()
     {
+        if (GetComponent<EntityDrawer>() != null) GetComponent<EntityDrawer>().in_screen = false;
+
         Destroy(gameObject);
     }
 }
