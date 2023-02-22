@@ -15,6 +15,7 @@ public class BulletShooter : MonoBehaviour
     public float spread = 0;
 
     Transform fire_trans;
+    GameObject bullet_holder;
 
     public float y_angle = 0;
 
@@ -24,6 +25,9 @@ public class BulletShooter : MonoBehaviour
     private void Start()
     {
         fire_trans = transform;
+
+        bullet_holder = GameObject.FindGameObjectWithTag("BulletHolder");
+        if (bullet_holder == null) Debug.LogWarning("No Bullet Holder found. Add one into your scene!");
     }
 
 
@@ -45,7 +49,7 @@ public class BulletShooter : MonoBehaviour
                 else fire_trans.transform.eulerAngles = new Vector3(0, y_angle, 0);
             }
 
-            Instantiate(bullet, fire_trans.position, fire_trans.rotation);
+            Instantiate(bullet, fire_trans.position, fire_trans.rotation, bullet_holder.transform);
         }
     }
 
@@ -66,8 +70,7 @@ public class BulletShooter : MonoBehaviour
             float new_rot = current_rot + rot;
             fire_trans.transform.eulerAngles = new Vector3(0, 0, new_rot);
 
-            Instantiate(bullet, fire_trans.position, fire_trans.rotation);
-            print(new_rot);
+            Instantiate(bullet, fire_trans.position, fire_trans.rotation, bullet_holder.transform);
         }
     }
 }
