@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_2 : MonoBehaviour
+public class Enemy_3 : MonoBehaviour
 {
     Vector2 velocity;
     public float speed = 1;
     public bool right = false;
-
-    Vector2 dir;
 
     Rigidbody2D rb;
     BulletShooter wp;
@@ -21,17 +19,6 @@ public class Enemy_2 : MonoBehaviour
         wp = GetComponentInChildren<BulletShooter>();
 
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-
-        if (right)
-        {
-            wp.transform.Rotate(0, 0, 0);
-            dir = Vector2.right;
-        }
-        else
-        {
-            wp.transform.Rotate(0, 180, 0);
-            dir = Vector2.left;
-        }
     }
 
 
@@ -44,10 +31,10 @@ public class Enemy_2 : MonoBehaviour
         velocity.x = Mathf.Clamp(velocity.x, -speed, speed);
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
-        RaycastHit2D hit = Physics2D.Raycast(origin: new Vector2(rb.position.x, rb.position.y), direction: dir, distance: Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(origin: new Vector2(rb.position.x, rb.position.y), direction: Vector2.up, distance: Mathf.Infinity);
         if (hit.collider != null && hit.collider.gameObject.TryGetComponent<Entity>(out Entity entity))
         {
-            if (entity.team != GetComponent<Entity>().team) wp.fire();
+            if (entity.team != GetComponent<Entity>().team) wp.fireCircle();
         }
     }
 }
