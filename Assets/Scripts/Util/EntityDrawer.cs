@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EntityDrawer : MonoBehaviour
 {
-    public float despawn_time = 7;
+    public float despawn_time = 0.5f;
     public bool in_screen = false;
 
 

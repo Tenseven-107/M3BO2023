@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8744434908025181630}
+  - component: {fileID: 1150417647930709667}
   m_Layer: 0
   m_Name: Group_Enemy_1_dragon
   m_TagString: Untagged
@@ -37,6 +38,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150417647930709667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744434908025181629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620c0e51e8367f14192c6f39ab7c9b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8744434908127856619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51,6 +64,10 @@ PrefabInstance:
     - target: {fileID: 2344026907529941709, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: frequency
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209841062426857650, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
+      propertyPath: despawn_time
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7209841062426857657, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: m_Name
@@ -122,6 +139,10 @@ PrefabInstance:
       propertyPath: frequency
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 7209841062426857650, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
+      propertyPath: despawn_time
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7209841062426857657, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -191,6 +212,10 @@ PrefabInstance:
     - target: {fileID: 2344026907529941709, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: frequency
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209841062426857650, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
+      propertyPath: despawn_time
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7209841062426857657, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: m_Name
@@ -262,6 +287,10 @@ PrefabInstance:
       propertyPath: frequency
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 7209841062426857650, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
+      propertyPath: despawn_time
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7209841062426857657, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -332,6 +361,10 @@ PrefabInstance:
       propertyPath: frequency
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 7209841062426857650, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
+      propertyPath: despawn_time
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7209841062426857657, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -401,6 +434,10 @@ PrefabInstance:
     - target: {fileID: 2344026907529941709, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: frequency
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209841062426857650, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
+      propertyPath: despawn_time
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7209841062426857657, guid: 0637a0404cb00db45acf2371f3f3f576, type: 3}
       propertyPath: m_Name

@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     public float unpause_time = 4;
+    public float unpause_time_speed = 0.8f;
 
     GameObject state;
     TextMeshProUGUI text;
@@ -40,7 +41,7 @@ public class Pause : MonoBehaviour
         float time = unpause_time;
         while (time > 0.1)
         {
-            time -= 0.1f * Time.fixedDeltaTime;
+            time -= 0.1f * unpause_time_speed;
             int time_int = (int)time;
             text.text = time_int.ToString();
 
