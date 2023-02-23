@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - GameState
   - BulletHolder
+  - SceneLoader
   layers:
   - Default
   - TransparentFX

@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    int target_framerate = 60; // frame cap
+
     public bool is_paused = false;
     public GameObject pause;
 
+
+    private void Start()
+    {
+        if (gameObject.tag != "GameState") gameObject.tag = "GameState";
+        Application.targetFrameRate = target_framerate;
+    }
 
     void Update()
     {

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EntityDrawer : MonoBehaviour
 {
@@ -41,8 +43,14 @@ public class EntityDrawer : MonoBehaviour
     }
 
 
+
     private void OnApplicationQuit()
     {
         in_screen = false;
+    }
+
+    private void Update()
+    {
+        if (FindObjectOfType<SceneLoader>().loading) in_screen= false;
     }
 }
