@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Enemy_3 : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Enemy_3 : MonoBehaviour
 
     Rigidbody2D rb;
     BulletShooter wp;
+    Area area;
 
 
     void Start()
@@ -17,6 +19,7 @@ public class Enemy_3 : MonoBehaviour
         velocity = Vector2.zero;
         rb = GetComponent<Rigidbody2D>();
         wp = GetComponentInChildren<BulletShooter>();
+        area = GetComponentInChildren<Area>();
 
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
@@ -31,10 +34,10 @@ public class Enemy_3 : MonoBehaviour
         velocity.x = Mathf.Clamp(velocity.x, -speed, speed);
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
-        RaycastHit2D hit = Physics2D.Raycast(origin: new Vector2(rb.position.x, rb.position.y), direction: Vector2.up, distance: Mathf.Infinity);
-        if (hit.collider != null && hit.collider.gameObject.TryGetComponent<Entity>(out Entity entity))
+        if (area.is_colliding)
         {
-            if (entity.team != GetComponent<Entity>().team) wp.fireCircle();
+            Entity entity = area.getEntity();
+            if (entity != null && entity.team != GetComponent<Entity>().team) wp.fireCircle();
         }
     }
 }

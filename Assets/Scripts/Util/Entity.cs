@@ -9,13 +9,15 @@ public class Entity : MonoBehaviour
     public int max_hp = 3;
     public int team = 0;
 
+    public bool godmode = false;
+
     public float i_frame_time = 1;
     float last;
 
 
     public void handleHit(int damage)
     {
-        if (hp > 0) //timeOut(i_frame_time) check if i-frames are stopped
+        if (hp > 0 && !godmode) //timeOut(i_frame_time) check if i-frames are stopped
         {
             if (Time.time - last < i_frame_time)
             {
