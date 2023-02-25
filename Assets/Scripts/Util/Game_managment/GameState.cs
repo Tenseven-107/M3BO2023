@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    int target_framerate = 60; // frame cap
+    const int target_framerate = 60; // frame cap
 
     public bool is_paused = false;
     public GameObject pause;

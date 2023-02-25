@@ -8,6 +8,7 @@ TagManager:
   - GameState
   - BulletHolder
   - SceneLoader
+  - ScoreHolder
   layers:
   - Default
   - TransparentFX

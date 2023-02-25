@@ -199,6 +199,7 @@ MonoBehaviour:
   team: 0
   godmode: 0
   i_frame_time: 1
+  npc: 0
 --- !u!114 &1917478552025398520
 MonoBehaviour:
   m_ObjectHideFlags: 0

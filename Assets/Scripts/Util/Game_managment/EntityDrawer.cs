@@ -24,6 +24,7 @@ public class EntityDrawer : MonoBehaviour
         if (!in_screen)
         {
             in_screen = true;
+            StopCoroutine(despawn());
         }
     }
 

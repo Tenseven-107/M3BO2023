@@ -25,6 +25,12 @@ public class SceneLoader : MonoBehaviour
     public void transition()
     {
         StartCoroutine(load());
+
+        if (GameObject.FindGameObjectWithTag("ScoreHolder"))
+        {
+            ScoreHolder holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
+            if (holder != null) holder.submitScore(false);
+        }
     }
 
 

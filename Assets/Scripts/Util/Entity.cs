@@ -14,6 +14,8 @@ public class Entity : MonoBehaviour
     public float i_frame_time = 1;
     float last;
 
+    public bool npc = true;
+
 
     public void handleHit(int damage)
     {
@@ -37,6 +39,12 @@ public class Entity : MonoBehaviour
     void die()
     {
         if (GetComponent<EntityDrawer>() != null) GetComponent<EntityDrawer>().in_screen = false;
+
+        if (!npc && GameObject.FindGameObjectWithTag("ScoreHolder"))
+        {
+            ScoreHolder holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
+            if (holder != null) holder.submitScore(true);
+        }
 
         Destroy(gameObject);
     }
