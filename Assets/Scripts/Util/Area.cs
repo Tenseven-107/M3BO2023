@@ -24,4 +24,10 @@ public class Area : MonoBehaviour
         if (collider != null) return collider.GetComponent<Entity>();
         else return null;
     }
+
+    public GameObject getObject()
+    {
+        if (collider != null) return collider.GetComponent<GameObject>();
+        else return null;
+    }
 }

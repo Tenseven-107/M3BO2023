@@ -25,7 +25,6 @@ public class Enemy_3 : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (right) velocity.x += speed * Time.fixedDeltaTime;
