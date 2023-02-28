@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class Area : MonoBehaviour
 {
+    public string collider_name = "Player";
+    public bool stay = false;
     public bool is_colliding = false;
+
     GameObject collider;
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collider = collision.gameObject;
-        is_colliding = true;
+        if (stay && collision.name == collider_name)
+        {
+            collider = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == collider_name)
+        {
+            collider = collision.gameObject;
+            is_colliding = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        is_colliding = false;
+        if (collision.name == collider_name)
+        {
+            collider = null;
+            is_colliding = false;
+        }
     }
 
 
@@ -27,7 +46,7 @@ public class Area : MonoBehaviour
 
     public GameObject getObject()
     {
-        if (collider != null) return collider.GetComponent<GameObject>();
+        if (collider != null) return collider;
         else return null;
     }
 }

@@ -2,56 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy_jellyfish : MonoBehaviour
 {
-
-    Vector2 velocity;
-    public float speed = 1;
-    public float cooldown = 0.5f;
-    float last;
-
-    public Color color = Color.white;
+    public float speed = 25;
+    public float amplitude = 1.5f;
+    public float frequency = 2;
 
     Rigidbody2D rb;
     Area area;
 
     void Start()
     {
-        velocity = Vector2.zero;
-
         rb = GetComponent<Rigidbody2D>();
         area = GetComponentInChildren<Area>();
 
-        GetComponent<SpriteRenderer>().material.color = color;
+        GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 1, 1);
     }
 
 
     void FixedUpdate()
     {
+        GameObject target = area.getObject();
+        Entity entity = area.getEntity();
+
         if (area.is_colliding)
         {
-            Entity entity = area.getEntity();
+            Vector3 relative = transform.InverseTransformPoint(target.transform.position);
+            float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+            transform.Rotate(0, 0, -angle);
 
-            if (Time.time - last < cooldown)
-            {
-                return;
-            }
-            last = Time.time;
-            if (entity != null && entity.team != GetComponent<Entity>().team) release();
+            release();
         }
+        else rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.1f);
     }
 
     void release()
     {
-        GameObject target = area.getObject();
-        print(target.name);
-        if (target != null)
-        {
-            if (target.transform.position.x < transform.position.x) velocity.x += speed;
-            if (target.transform.position.x > transform.position.x) velocity.x -= speed;
+        Vector2 pos = rb.velocity;
 
-            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
-        }
+        float sine = Mathf.Sin(pos.x * frequency) * amplitude;
+        pos = new Vector2(transform.up.x + sine, transform.up.y + sine);
+
+        rb.velocity = pos * speed * Time.fixedDeltaTime;
     }
 }
