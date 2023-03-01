@@ -9,6 +9,7 @@ TagManager:
   - BulletHolder
   - SceneLoader
   - ScoreHolder
+  - Portal
   layers:
   - Default
   - TransparentFX

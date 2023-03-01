@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
     {
         int children = transform.childCount + 1;
 
-        if (children > 0 && children < 2) Instantiate(enemy, transform);
+        if (children <= 1) Instantiate(enemy, transform);
     }
 
 

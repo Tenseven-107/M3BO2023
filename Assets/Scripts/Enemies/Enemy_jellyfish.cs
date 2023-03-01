@@ -18,7 +18,7 @@ public class Enemy_jellyfish : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         area = GetComponentInChildren<Area>();
 
-        GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 1, 1);
+        GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 1, 1, 1, 1);
     }
 
 

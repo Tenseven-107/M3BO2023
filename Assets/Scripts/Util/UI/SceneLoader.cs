@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public float load_time = 1;
     public string scene_name = "TestScene";
+    string scene_name_override = "";
     public bool loading = false;
 
     Animator anims;
@@ -22,8 +23,10 @@ public class SceneLoader : MonoBehaviour
     }
 
 
-    public void transition()
+    public void transition(string override_name)
     {
+        if (override_name != "") scene_name_override = override_name;
+
         StartCoroutine(load());
 
         if (GameObject.FindGameObjectWithTag("ScoreHolder"))
@@ -40,7 +43,9 @@ public class SceneLoader : MonoBehaviour
         loading = true;
 
         yield return new WaitForSeconds(load_time);
-        SceneManager.LoadScene(scene_name);
+
+        if (scene_name_override == "") SceneManager.LoadScene(scene_name);
+        else SceneManager.LoadScene(scene_name_override);
     }
 
 
@@ -49,7 +54,7 @@ public class SceneLoader : MonoBehaviour
     {
         if (Input.GetKeyDown("y"))
         {
-            transition(); // TEST FUNCTIONALITY. CHANGE LATER
+            transition(""); // TEST FUNCTIONALITY. CHANGE LATER
         }
     }
 }

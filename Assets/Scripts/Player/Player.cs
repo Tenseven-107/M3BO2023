@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+
+        if (gameObject.tag != "Player") gameObject.tag = "Player";
     }
 
 

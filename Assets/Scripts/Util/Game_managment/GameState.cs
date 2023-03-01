@@ -9,15 +9,11 @@ public class GameState : MonoBehaviour
     public bool is_paused = false;
     public GameObject pause;
 
-    int altar_amount;
-
 
     private void Start()
     {
         if (gameObject.tag != "GameState") gameObject.tag = "GameState";
         Application.targetFrameRate = target_framerate;
-
-        altar_amount = 0; // change to amount of altars in scene
     }
 
     void Update()
