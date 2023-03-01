@@ -148,6 +148,7 @@ MonoBehaviour:
   godmode: 0
   i_frame_time: 1
   npc: 1
+  score: 7
 --- !u!114 &7393150373208691125
 MonoBehaviour:
   m_ObjectHideFlags: 0

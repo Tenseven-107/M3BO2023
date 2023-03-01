@@ -15,11 +15,12 @@ public class Entity : MonoBehaviour
     float last;
 
     public bool npc = true;
+    public int score = 5;
 
 
     public void handleHit(int damage)
     {
-        if (hp > 0 && !godmode) //timeOut(i_frame_time) check if i-frames are stopped
+        if (hp > 0 && !godmode)
         {
             if (Time.time - last < i_frame_time)
             {
@@ -40,11 +41,9 @@ public class Entity : MonoBehaviour
     {
         if (GetComponent<EntityDrawer>() != null) GetComponent<EntityDrawer>().in_screen = false;
 
-        if (!npc && GameObject.FindGameObjectWithTag("ScoreHolder"))
-        {
-            ScoreHolder holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
-            if (holder != null) holder.submitScore(true);
-        }
+        ScoreHolder holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
+        if (!npc) holder.submitScore(true);
+        else holder.addScore(score);
 
         Destroy(gameObject);
     }

@@ -188,7 +188,9 @@ MonoBehaviour:
   hp: 2
   max_hp: 2
   team: 1
-  i_frame_time: 1
+  godmode: 0
+  i_frame_time: 0.5
+  npc: 1
 --- !u!114 &53814390045646628
 MonoBehaviour:
   m_ObjectHideFlags: 0

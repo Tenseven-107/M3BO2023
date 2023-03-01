@@ -144,8 +144,9 @@ MonoBehaviour:
   max_hp: 2
   team: 1
   godmode: 0
-  i_frame_time: 1
+  i_frame_time: 0.5
   npc: 1
+  score: 7
 --- !u!114 &8809981010951714602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +199,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118660099919246319, guid: fa012559b088e724ba8f96a7c2a242fa, type: 3}
       propertyPath: m_Radius
-      value: 1.2415526
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 1118660099919246319, guid: fa012559b088e724ba8f96a7c2a242fa, type: 3}
       propertyPath: m_Offset.x

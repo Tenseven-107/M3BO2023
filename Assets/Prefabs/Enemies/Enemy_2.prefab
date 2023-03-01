@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7209841062426857662}
   - component: {fileID: 6143728163606205584}
   m_Layer: 2
-  m_Name: Enemy 2
+  m_Name: Enemy_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,6 +189,8 @@ MonoBehaviour:
   team: 1
   godmode: 0
   i_frame_time: 0.5
+  npc: 1
+  score: 4
 --- !u!114 &6143728163606205584
 MonoBehaviour:
   m_ObjectHideFlags: 0

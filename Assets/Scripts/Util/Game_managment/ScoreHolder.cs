@@ -34,7 +34,9 @@ public class ScoreHolder : MonoBehaviour
         if (gameObject.tag != "ScoreHolder") gameObject.tag = "ScoreHolder";
     }
 
-    
+
+    public void addScore(int added_score) { score += added_score; }
+
 
     public void submitScore(bool reset)
     {

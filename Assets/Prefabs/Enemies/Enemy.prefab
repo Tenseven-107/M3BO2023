@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.25
   frequency: 8
+  inverted: 0
 --- !u!114 &7209841062426857651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +186,10 @@ MonoBehaviour:
   hp: 2
   max_hp: 2
   team: 1
+  godmode: 0
   i_frame_time: 0.5
+  npc: 1
+  score: 2
 --- !u!114 &7209841062426857650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +202,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325feefa17718b245932671a5a243078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  despawn_time: 0.5
+  in_screen: 0
