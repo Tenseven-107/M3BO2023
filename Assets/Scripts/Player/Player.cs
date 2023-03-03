@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     // Combat vars
     public BulletShooter wp;
+    public BulletShooter wp2;
+    Entity entity;
 
     
     // Set up
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        entity = GetComponent<Entity>();
 
         if (gameObject.tag != "Player") gameObject.tag = "Player";
     }
@@ -91,16 +94,22 @@ public class Player : MonoBehaviour
         {
             velocity.x *= boost_modifier;
             fuel -= 1;
-
             fuel = Mathf.Clamp(fuel, 0, max_fuel);
+
+            entity.invincible = true;
+
             if (fuel <= 0) 
             {
                 recharging = true;
+
+                entity.invincible = false;
             }
         }
-        if (fuel < max_fuel)
+        if (!Input.GetKey("l") && fuel < max_fuel)
         {
             fuel += 0.5f;
+            entity.invincible = false;
+
             if (fuel >= max_fuel) 
             { 
                 recharging = false;
@@ -130,6 +139,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey("j"))
         {
             wp.fire();
+        }
+        if (Input.GetKey("k"))
+        {
+            wp2.fire();
         }
     }
 }

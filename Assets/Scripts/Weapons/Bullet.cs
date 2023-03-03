@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10;
     public int damage = 1;
     public int team = 0;
+    public bool piercing = false;
     public Color color = Color.white;
     Rigidbody2D rb;
 
@@ -31,6 +32,26 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var collider = collision.GetComponent<Entity>();
+        if (collision.GetComponent<Shield>() != null) collideShield(collision);
+
+        if (collider)
+        {
+            if (collider.team != team)
+            {
+                collider.handleHit(damage);
+
+                if (!piercing) Destroy(gameObject);
+            }
+        }
+        if (collision.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void collideShield(Collider2D collision)
+    {
+        Shield collider = collision.GetComponent<Shield>();
         if (collider)
         {
             if (collider.team != team)
@@ -38,10 +59,6 @@ public class Bullet : MonoBehaviour
                 collider.handleHit(damage);
                 Destroy(gameObject);
             }
-        }
-        if (collision.tag == "Obstacle")
-        {
-            Destroy(gameObject);
         }
     }
 }

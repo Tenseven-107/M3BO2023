@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public int team = 0;
 
     public bool godmode = false;
+    [HideInInspector] public bool invincible = false;
 
     public float i_frame_time = 1;
     float last;
@@ -20,7 +21,7 @@ public class Entity : MonoBehaviour
 
     public void handleHit(int damage)
     {
-        if (hp > 0 && !godmode)
+        if (hp > 0 && !godmode && !invincible)
         {
             if (Time.time - last < i_frame_time)
             {
