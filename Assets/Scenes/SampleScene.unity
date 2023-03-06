@@ -8172,9 +8172,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 706813207209284466, guid: cce3b70ccc0357840b3876c0342da0af, type: 3}
+      propertyPath: boss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 706813207209284466, guid: cce3b70ccc0357840b3876c0342da0af, type: 3}
+      propertyPath: boss_obj
+      value: 
+      objectReference: {fileID: 8809981010951714606, guid: ed3bbc2e5ae9405439ff15c3a0858002, type: 3}
     - target: {fileID: 706813207209284467, guid: cce3b70ccc0357840b3876c0342da0af, type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 706813207209284467, guid: cce3b70ccc0357840b3876c0342da0af, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 706813207209284467, guid: cce3b70ccc0357840b3876c0342da0af, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 706813207209284467, guid: cce3b70ccc0357840b3876c0342da0af, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81151,6 +81167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 410596430870122209, guid: df72b45195145814ab55844bc1d33be2, type: 3}
+      propertyPath: scene_name
+      value: SampleScene
+      objectReference: {fileID: 0}
     - target: {fileID: 445147148388120234, guid: df72b45195145814ab55844bc1d33be2, type: 3}
       propertyPath: m_RootOrder
       value: 1

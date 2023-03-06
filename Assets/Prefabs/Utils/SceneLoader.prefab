@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   load_time: 1
-  Scene_name: TestScene
+  scene_name: SampleScene
+  loading: 0
 --- !u!1 &3025903609094328427
 GameObject:
   m_ObjectHideFlags: 0

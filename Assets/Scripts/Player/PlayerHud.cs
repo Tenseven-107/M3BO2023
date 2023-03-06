@@ -48,7 +48,7 @@ public class PlayerHud : MonoBehaviour
         {
             hp.text = player_entity.hp.ToString();
             fuel.text = player.fuel.ToString();
-            objective.text = (portal.child_count - 1).ToString();
+            objective.text = portal.child_count.ToString();
             score.text = holder.score.ToString();
         }
     }

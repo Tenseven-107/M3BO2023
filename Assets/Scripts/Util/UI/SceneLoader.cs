@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public float load_time = 1;
-    public string scene_name = "TestScene";
+    public string scene_name = "SampleScene";
     string scene_name_override = "";
     public bool loading = false;
 
