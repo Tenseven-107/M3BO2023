@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +17,7 @@ public class BulletShooter : MonoBehaviour
     public float y_angle = 0;
 
     public GameObject bullet;
+    ParticleSystem particle;
 
 
     private void Start()
@@ -28,6 +26,7 @@ public class BulletShooter : MonoBehaviour
 
         bullet_holder = GameObject.FindGameObjectWithTag("BulletHolder");
         if (bullet_holder == null) Debug.LogWarning("No Bullet Holder found. Add one into your scene!");
+        if (GetComponent<ParticleSystem>() != null) particle = GetComponent<ParticleSystem>();
     }
 
 
@@ -50,6 +49,8 @@ public class BulletShooter : MonoBehaviour
             }
 
             Instantiate(bullet, fire_trans.position, fire_trans.rotation, bullet_holder.transform);
+
+            if (particle != null) particle.Emit(1);
         }
     }
 
@@ -72,5 +73,7 @@ public class BulletShooter : MonoBehaviour
 
             Instantiate(bullet, fire_trans.position, fire_trans.rotation, bullet_holder.transform);
         }
+        
+        if (particle != null) particle.Emit(1);
     }
 }
