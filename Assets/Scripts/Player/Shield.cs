@@ -14,13 +14,13 @@ public class Shield : MonoBehaviour
     float charge;
 
     Collider2D collider;
-    SpriteRenderer sprite;
+    Animator anims;
 
 
     private void Start()
     {
         collider = GetComponent<Collider2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        anims = GetComponent<Animator>();
 
         recharging = false;
         charge = 100;
@@ -41,7 +41,9 @@ public class Shield : MonoBehaviour
                 charge = 0;
 
                 collider.enabled = false;
-                sprite.enabled = false;
+
+                anims.SetTrigger("Dissapear");
+                anims.ResetTrigger("Appear");
             }
         }
     }
@@ -59,7 +61,9 @@ public class Shield : MonoBehaviour
                 recharging = false;
 
                 collider.enabled = true;
-                sprite.enabled = true;
+
+                anims.ResetTrigger("Dissapear");
+                anims.SetTrigger("Appear");
             }
         }
     }
