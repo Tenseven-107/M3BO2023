@@ -18,6 +18,16 @@ public class Entity : MonoBehaviour
     public bool npc = true;
     public int score = 5;
 
+    bool flash = true;
+    SpriteRenderer sprite;
+
+
+    private void Start()
+    {
+        flash = true;
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
 
     public void handleHit(int damage)
     {
@@ -30,13 +40,37 @@ public class Entity : MonoBehaviour
             last = Time.time;
 
             hp -= damage;
+            StartCoroutine(Flash());
 
             if (hp <= 0)
             {
+                flash = false;
                 die();
             }
         }
     }
+
+
+    IEnumerator Flash()
+    {
+        Color color = sprite.color;
+
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.05f);
+
+        for (float n = 0; n < i_frame_time; n += 0.1f)
+        {
+            if (flash)
+            {
+                sprite.color = Color.clear;
+                yield return new WaitForSeconds(0.025f);
+                sprite.color = color;
+                yield return new WaitForSeconds(0.025f);
+            }
+            else break;
+        }
+    }
+
 
     void die()
     {

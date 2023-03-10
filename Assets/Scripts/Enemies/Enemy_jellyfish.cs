@@ -27,7 +27,7 @@ public class Enemy_jellyfish : MonoBehaviour
         GameObject target = area.getObject();
         Entity entity = area.getEntity();
 
-        if (area.is_colliding)
+        if (area.is_colliding && target != null)
         {
             Vector3 relative = transform.InverseTransformPoint(target.transform.position);
             float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
