@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3650851972029906481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 2, y: 2, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3650851973823515256}
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 3650851973823515263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2636, y: 0.2636, z: 0.2636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7732018600563757131}
@@ -163,8 +163,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.9690399, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5c47d757a8bb64848a2ac65646f7bb14, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -189,7 +189,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.11
 --- !u!114 &3650851973823515258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +206,10 @@ MonoBehaviour:
   max_hp: 5
   team: 1
   godmode: 0
+  invincible: 0
   i_frame_time: 0.1
   npc: 1
+  score: 5
 --- !u!114 &3650851973823515261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +231,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118660099919246319, guid: fa012559b088e724ba8f96a7c2a242fa, type: 3}
       propertyPath: m_Radius
-      value: 0.7897178
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1118660099919246319, guid: fa012559b088e724ba8f96a7c2a242fa, type: 3}
       propertyPath: m_Offset.x

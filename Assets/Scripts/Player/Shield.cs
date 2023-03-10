@@ -13,12 +13,14 @@ public class Shield : MonoBehaviour
     public float max_charge = 100;
     float charge;
 
+    SpriteRenderer sprite;
     Collider2D collider;
     Animator anims;
 
 
     private void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
         anims = GetComponent<Animator>();
 
@@ -34,6 +36,7 @@ public class Shield : MonoBehaviour
         if (hp > 0 && !recharging)
         {
             hp -= damage;
+            StartCoroutine(Flash());
 
             if (hp <= 0)
             {
@@ -65,6 +68,23 @@ public class Shield : MonoBehaviour
                 anims.ResetTrigger("Dissapear");
                 anims.SetTrigger("Appear");
             }
+
+            sprite.color = Color.white;
+        }
+    }
+
+
+    IEnumerator Flash()
+    {
+        sprite.color = Color.green;
+        yield return new WaitForSeconds(0.05f);
+
+        for (float n = 0; n < 1; n += 0.1f)
+        {
+            sprite.color = Color.clear;
+            yield return new WaitForSeconds(0.025f);
+            sprite.color = Color.white;
+            yield return new WaitForSeconds(0.025f);
         }
     }
 }

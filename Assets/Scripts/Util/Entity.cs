@@ -80,6 +80,7 @@ public class Entity : MonoBehaviour
         if (!npc) holder.submitScore(true);
         else holder.addScore(score);
 
-        Destroy(gameObject);
+        if (npc) Destroy(gameObject);
+        else gameObject.SetActive(false);
     }
 }
