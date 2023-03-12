@@ -123,6 +123,8 @@ MonoBehaviour:
   i_frame_time: 0.5
   npc: 1
   score: 10
+  death_effect: {fileID: 6918265050022049252, guid: a2072f6ab0d873a41abc37f4f3262407, type: 3}
+  hitstop_time: 0.01
 --- !u!114 &4827432006316303626
 MonoBehaviour:
   m_ObjectHideFlags: 0

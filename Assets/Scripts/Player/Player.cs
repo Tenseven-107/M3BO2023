@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     public BulletShooter wp2;
     Entity entity;
 
+    // FX vars
+    public ParticleSystem jet_particles;
+
     
     // Set up
     void Start()
@@ -42,6 +45,8 @@ public class Player : MonoBehaviour
         entity = GetComponent<Entity>();
 
         if (gameObject.tag != "Player") gameObject.tag = "Player";
+
+        jet_particles.Stop();
     }
 
 
@@ -90,22 +95,22 @@ public class Player : MonoBehaviour
 
 
         // Boosting
-        if (Input.GetKey("l") && fuel > 0 && !recharging)
+        if ((Input.GetKey("l") || Input.GetKey("space")) && fuel > 0 && !recharging)
         {
             velocity.x *= boost_modifier;
             fuel -= 1;
             fuel = Mathf.Clamp(fuel, 0, max_fuel);
 
             entity.invincible = true;
+            jet_particles.Emit(1);
 
             if (fuel <= 0) 
             {
                 recharging = true;
-
                 entity.invincible = false;
             }
         }
-        if (!Input.GetKey("l") && fuel < max_fuel)
+        if (!(Input.GetKey("l") || Input.GetKey("space")) && fuel < max_fuel)
         {
             fuel += 0.5f;
             entity.invincible = false;

@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  right: 0
+  left: 0
 --- !u!114 &2344026907529941709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +192,8 @@ MonoBehaviour:
   i_frame_time: 0.5
   npc: 1
   score: 4
+  death_effect: {fileID: 6918265050022049252, guid: a2072f6ab0d873a41abc37f4f3262407, type: 3}
+  hitstop_time: 0
 --- !u!114 &6143728163606205584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325feefa17718b245932671a5a243078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawn_time: 1
+  despawn_time: 0.35
   in_screen: 0
 --- !u!1001 &1891755541229508755
 PrefabInstance:

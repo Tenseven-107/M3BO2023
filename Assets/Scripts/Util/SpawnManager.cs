@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public float cooldown = 10f;
+    [Range(5, 20)] public float cooldown = 10f;
     float last;
 
     public bool move_with_camera = false;
@@ -17,30 +17,38 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemies;
     Transform[] spawn_points;
 
+    public bool active = true;
+
 
     void Start()
     {
         spawn_points = GetComponentsInChildren<Transform>();
-
         gc = GameObject.FindGameObjectWithTag("MainCamera");
+
+        if (gameObject.tag != "SpawnManager") gameObject.tag = "SpawnManager";
+
+        if (active) StartCoroutine(cycle());
     }
 
     private void Update()
     {
-        spawn();
-
         if (move_with_camera) setPos();
+    }
+
+
+    IEnumerator cycle()
+    {
+        while (active)
+        {
+            yield return new WaitForSeconds(cooldown);
+            spawn();
+        }
+        if (active) yield break;
     }
 
 
     void spawn()
     {
-        if (Time.time - last < cooldown)
-        {
-            return;
-        }
-        last = Time.time;
-
         int children = transform.childCount + 1;
         int child_number = Mathf.Clamp(UnityEngine.Random.Range(0, children), 1, children);
         int enemy_number = UnityEngine.Random.Range(0, enemies.Length);

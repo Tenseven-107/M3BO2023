@@ -12,9 +12,12 @@ public class GameCamera : MonoBehaviour
 
     public Player player;
 
+    float hitstop_time = 0;
+
+
     void Start()
     {
-        transform.position = player.transform.position + cam_offset;
+        if (player != null) transform.position = player.transform.position + cam_offset;
         if (gameObject.tag != "MainCamera") gameObject.tag = "MainCamera";
     }
 
@@ -41,5 +44,20 @@ public class GameCamera : MonoBehaviour
         }
 
         transform.position = pos;
+    }
+
+
+    public void hitstop(float time)
+    { 
+        hitstop_time = time;
+        StartCoroutine(hitstopLoop());
+    }
+
+    IEnumerator hitstopLoop()
+    {
+        Time.timeScale = 0.1f;
+        yield return new WaitForSeconds(hitstop_time);
+        Time.timeScale = 1;
+        yield break;
     }
 }

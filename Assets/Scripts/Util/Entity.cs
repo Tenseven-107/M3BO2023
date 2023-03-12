@@ -21,6 +21,10 @@ public class Entity : MonoBehaviour
     bool flash = true;
     SpriteRenderer sprite;
 
+    public GameObject death_effect;
+
+    [Range(0, 0.1f)] public float hitstop_time = 0;
+
 
     private void Start()
     {
@@ -41,6 +45,12 @@ public class Entity : MonoBehaviour
 
             hp -= damage;
             StartCoroutine(Flash());
+
+            if (hitstop_time > 0)
+            {
+                GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+                camera.GetComponent<GameCamera>().hitstop(hitstop_time);
+            }
 
             if (hp <= 0)
             {
@@ -79,6 +89,12 @@ public class Entity : MonoBehaviour
         ScoreHolder holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
         if (!npc) holder.submitScore(true);
         else holder.addScore(score);
+
+        if (death_effect != null)
+        {
+            Transform parent = transform.parent;
+            Instantiate(death_effect, transform.position, Quaternion.Euler(0, 0, 0), parent);
+        }
 
         if (npc) Destroy(gameObject);
         else gameObject.SetActive(false);

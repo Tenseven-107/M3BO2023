@@ -64,6 +64,13 @@ public class Portal : MonoBehaviour
         {
             final_boss = Instantiate(boss_obj, transform);
             boss_spawned = true;
+
+            GameObject[] managers = GameObject.FindGameObjectsWithTag("SpawnManager");
+            foreach (GameObject manager in managers)
+            {
+                SpawnManager m = manager.GetComponent<SpawnManager>();
+                m.active = false;
+            }
         }  
     }
 }
