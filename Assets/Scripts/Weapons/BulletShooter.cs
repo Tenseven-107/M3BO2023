@@ -42,7 +42,7 @@ public class BulletShooter : MonoBehaviour
         {
             if (has_spread)
             {
-                float number = UnityEngine.Random.RandomRange(-spread, spread);
+                float number = Random.Range(-spread, spread);
                 float angle = number;
                 if (!(fire_trans.eulerAngles.z < -spread || fire_trans.eulerAngles.z > spread)) fire_trans.transform.eulerAngles = new Vector3(0, y_angle, angle);
                 else fire_trans.transform.eulerAngles = new Vector3(0, y_angle, 0);

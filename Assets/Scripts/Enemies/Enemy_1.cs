@@ -6,7 +6,7 @@ public class Enemy_1 : MonoBehaviour
 {
     Vector2 velocity;
     public float speed = 1;
-    public bool right = false;
+    public bool left = false;
 
     Rigidbody2D rb;
 
@@ -19,7 +19,7 @@ public class Enemy_1 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (right) velocity.x += speed * Time.fixedDeltaTime;
+        if (left) velocity.x += speed * Time.fixedDeltaTime;
         else velocity.x -= speed * Time.fixedDeltaTime;
 
         velocity.x = Mathf.Clamp(velocity.x, -speed, speed);

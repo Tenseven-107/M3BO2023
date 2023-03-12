@@ -146,7 +146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118660099919246319, guid: fa012559b088e724ba8f96a7c2a242fa, type: 3}
       propertyPath: m_Radius
-      value: 0.2
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 1118660099919246319, guid: fa012559b088e724ba8f96a7c2a242fa, type: 3}
       propertyPath: m_Offset.x
@@ -261,7 +261,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0ea14ae8003fcf42bb6b3f80c23b9b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f86cb7c258d55224b857c44e1248c9df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

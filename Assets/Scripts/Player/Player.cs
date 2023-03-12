@@ -82,14 +82,14 @@ public class Player : MonoBehaviour
             {
                 flipX();
             }
-        } 
+        }
         else
         {
             velocity = Vector2.zero;
         }
 
 
-         // Boosting
+        // Boosting
         if (Input.GetKey("l") && fuel > 0 && !recharging)
         {
             velocity.x *= boost_modifier;
