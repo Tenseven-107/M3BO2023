@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -18,12 +19,21 @@ public class GameCamera : MonoBehaviour
 
     float screenshake_time = 0;
     float screenshake_intensity = 0;
+    public float screenshake_mod = 1;
 
 
     void Start()
     {
         if (player != null) transform.position = player.transform.position + cam_offset;
         if (gameObject.tag != "MainCamera") gameObject.tag = "MainCamera";
+
+        string path = Path.Combine(Application.persistentDataPath, "SettingsSave.json");
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SettingsSave save = JsonUtility.FromJson<SettingsSave>(json);
+            screenshake_mod = save.screenshake;
+        }
     }
 
     
@@ -70,8 +80,8 @@ public class GameCamera : MonoBehaviour
     public void screenshake(float screenshake_time, float screenshake_intensity)
     {
         this.screenshake_time = screenshake_time;
-        this.screenshake_intensity = screenshake_intensity;
-        if (screenshake_intensity != 0) StartCoroutine(screenshakeLoop());
+        this.screenshake_intensity = screenshake_intensity / screenshake_mod;
+        if (screenshake_intensity != 0 && !(screenshake_mod <= -100)) StartCoroutine(screenshakeLoop());
     }
 
     IEnumerator screenshakeLoop() 
