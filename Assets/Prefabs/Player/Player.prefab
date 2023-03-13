@@ -5021,7 +5021,10 @@ MonoBehaviour:
   npc: 0
   score: 0
   death_effect: {fileID: 0}
+  juice: 1
   hitstop_time: 0.025
+  screenshake_time: 0.08
+  screenshake_intensity: 0.25
 --- !u!114 &1917478552025398520
 MonoBehaviour:
   m_ObjectHideFlags: 0

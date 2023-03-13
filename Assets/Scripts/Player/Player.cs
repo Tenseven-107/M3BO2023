@@ -28,8 +28,11 @@ public class Player : MonoBehaviour
 
     // FX vars
     public ParticleSystem jet_particles;
+    public bool juice = true;
+    [Range(0, 1)] public float boost_screenshake_time = 0.1f;
+    [Range(0, 10)] public float boost_screenshake_intensity = 0.15f;
 
-    
+
     // Set up
     void Start()
     {
@@ -103,6 +106,12 @@ public class Player : MonoBehaviour
 
             entity.invincible = true;
             jet_particles.Emit(1);
+
+            if (juice)
+            {
+                GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
+                camera.screenshake(boost_screenshake_time, boost_screenshake_intensity);
+            }
 
             if (fuel <= 0) 
             {

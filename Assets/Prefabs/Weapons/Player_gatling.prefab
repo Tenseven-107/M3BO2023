@@ -52,6 +52,9 @@ MonoBehaviour:
   spread: 2
   y_angle: 0
   bullet: {fileID: 4881110261947480937, guid: 1f6f1808c5994f44f837ecd787e7bdab, type: 3}
+  juice: 1
+  screenshake_time: 0.001
+  screenshake_intensity: 0.01
 --- !u!199 &7369023113510577416
 ParticleSystemRenderer:
   serializedVersion: 6

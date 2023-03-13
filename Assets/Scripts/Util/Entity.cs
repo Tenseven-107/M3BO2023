@@ -23,7 +23,10 @@ public class Entity : MonoBehaviour
 
     public GameObject death_effect;
 
+    public bool juice = false;
     [Range(0, 0.1f)] public float hitstop_time = 0;
+    [Range(0, 1)] public float screenshake_time = 0;
+    [Range(0, 10)] public float screenshake_intensity = 0;
 
 
     private void Start()
@@ -46,10 +49,11 @@ public class Entity : MonoBehaviour
             hp -= damage;
             StartCoroutine(Flash());
 
-            if (hitstop_time > 0)
+            if (juice)
             {
-                GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-                camera.GetComponent<GameCamera>().hitstop(hitstop_time);
+                GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
+                camera.hitstop(hitstop_time);
+                camera.screenshake(screenshake_time, screenshake_intensity);
             }
 
             if (hp <= 0)

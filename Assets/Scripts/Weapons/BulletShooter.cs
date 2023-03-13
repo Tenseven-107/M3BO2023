@@ -19,6 +19,10 @@ public class BulletShooter : MonoBehaviour
     public GameObject bullet;
     ParticleSystem particle;
 
+    public bool juice = false;
+    [Range(0, 1)] public float screenshake_time = 0;
+    [Range(0, 10)] public float screenshake_intensity = 0;
+
 
     private void Start()
     {
@@ -37,6 +41,12 @@ public class BulletShooter : MonoBehaviour
             return;
         }
         last = Time.time;
+
+        if (juice)
+        {
+            GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
+            camera.screenshake(screenshake_time, screenshake_intensity);
+        }
 
         for (int i = 0; i < bullets; i++)
         {
@@ -61,6 +71,12 @@ public class BulletShooter : MonoBehaviour
             return;
         }
         last = Time.time;
+
+        if (juice)
+        {
+            GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
+            camera.screenshake(screenshake_time, screenshake_intensity);
+        }
 
         float rot = 360 / bullets;
         float current_rot;

@@ -126,7 +126,10 @@ MonoBehaviour:
   npc: 1
   score: 5
   death_effect: {fileID: 6918265050022049252, guid: a2072f6ab0d873a41abc37f4f3262407, type: 3}
+  juice: 1
   hitstop_time: 0.005
+  screenshake_time: 0
+  screenshake_intensity: 0
 --- !u!114 &3650851973823515261
 MonoBehaviour:
   m_ObjectHideFlags: 0
