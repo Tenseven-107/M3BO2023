@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
 
         // Boosting
-        if ((Input.GetKey("l") || Input.GetKey("space")) && fuel > 0 && !recharging)
+        if ((Input.GetKey("l") || Input.GetKey("space")) && (InputX != 0 || InputY != 0) && fuel > 0 && !recharging)
         {
             velocity.x *= boost_modifier;
             fuel -= 1;
