@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,17 +10,26 @@ public class SceneLoader : MonoBehaviour
     public float load_time = 1;
     public string scene_name = "SampleScene";
     string scene_name_override = "";
+
+    public Portal portal;
+
     public bool loading = false;
 
+    TextMeshProUGUI text;
     Animator anims;
 
 
     private void Start()
     {
-        if (gameObject.tag != "SceneLoader") gameObject.tag = "SceneLoader";
         anims = GetComponentInChildren<Animator>();
+        text = GetComponentInChildren<TextMeshProUGUI>();
 
         loading = false;
+
+        if (portal != null) text.text = "Altars: " + portal.transform.childCount.ToString();
+        else text.text = "";
+
+        if (gameObject.tag != "SceneLoader") gameObject.tag = "SceneLoader";
     }
 
 

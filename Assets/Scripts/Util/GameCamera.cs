@@ -24,6 +24,8 @@ public class GameCamera : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
+
         if (player != null) transform.position = player.transform.position + cam_offset;
         if (gameObject.tag != "MainCamera") gameObject.tag = "MainCamera";
 

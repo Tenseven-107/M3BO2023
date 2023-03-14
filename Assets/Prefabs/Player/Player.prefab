@@ -5002,7 +5002,7 @@ MonoBehaviour:
   jet_particles: {fileID: 4416680349219300650}
   juice: 1
   boost_screenshake_time: 0.1
-  boost_screenshake_intensity: 1
+  boost_screenshake_intensity: 0.15
 --- !u!114 &3256804387860038412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,8 +5026,8 @@ MonoBehaviour:
   death_effect: {fileID: 6918265050022049252, guid: 3d4bba16a29a67841a60411c339dfc92, type: 3}
   juice: 1
   hitstop_time: 0.025
-  screenshake_time: 0.08
-  screenshake_intensity: 0.25
+  screenshake_time: 0.1
+  screenshake_intensity: 0.35
 --- !u!114 &1917478552025398520
 MonoBehaviour:
   m_ObjectHideFlags: 0
