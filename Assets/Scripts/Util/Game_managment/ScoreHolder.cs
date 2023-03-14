@@ -9,8 +9,9 @@ using UnityEngine;
 
 public class ScoreHolder : MonoBehaviour
 {
-    public int score = 0;
-    public int hi_score = 0;
+    [HideInInspector] public int score = 0;
+    [HideInInspector] public int score_log = 0;
+    [HideInInspector] public int hi_score = 0;
     string path;
 
 
@@ -32,6 +33,8 @@ public class ScoreHolder : MonoBehaviour
         }
 
         if (gameObject.tag != "ScoreHolder") gameObject.tag = "ScoreHolder";
+
+        score_log = 0;
     }
 
 
@@ -40,6 +43,8 @@ public class ScoreHolder : MonoBehaviour
 
     public void submitScore(bool reset)
     {
+        score_log = score;
+
         if (score > hi_score) hi_score = score;
         if (reset) score = 0;
 

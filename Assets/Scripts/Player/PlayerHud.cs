@@ -23,10 +23,13 @@ public class PlayerHud : MonoBehaviour
     ScoreHolder holder;
     Portal portal;
 
+    SceneLoader loader;
+
 
     void Start()
     {
         text = GetComponentsInChildren<TextMeshProUGUI>();
+        loader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
 
         hud.active = true;
         buttons.active = false;
@@ -74,7 +77,18 @@ public class PlayerHud : MonoBehaviour
         buttons.active = true;
         hud.active = false;
 
-        final_score.text = "Score: " + holder.score.ToString();
+        final_score.text = "Score: " + holder.score_log.ToString();
         hi_score.text = "Hi-score: " + holder.hi_score.ToString();
+    }
+
+
+    public void buttonRetry()
+    {
+        loader.transition("");
+    }
+
+    public void buttonQuit()
+    {
+        loader.transition("Main_menu");
     }
 }
