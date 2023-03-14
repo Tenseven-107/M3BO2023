@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class PlayerHud : MonoBehaviour
 {
+    public GameObject hud;
+    public GameObject buttons;
+
     TextMeshProUGUI[] text;
 
     TextMeshProUGUI hp;
     TextMeshProUGUI fuel;
     TextMeshProUGUI objective;
     TextMeshProUGUI score;
+
+    TextMeshProUGUI final_score;
+    TextMeshProUGUI hi_score;
 
     Player player;
     Entity player_entity;
@@ -21,6 +27,9 @@ public class PlayerHud : MonoBehaviour
     void Start()
     {
         text = GetComponentsInChildren<TextMeshProUGUI>();
+
+        hud.active = true;
+        buttons.active = false;
         
         if (text != null )
         {
@@ -28,6 +37,8 @@ public class PlayerHud : MonoBehaviour
             fuel = text[1];
             objective = text[2];
             score = text[3];
+            final_score = text[4];
+            hi_score = text[5];
         }
 
         Invoke("Init", 0.01f);
@@ -50,6 +61,20 @@ public class PlayerHud : MonoBehaviour
             fuel.text = player.fuel.ToString();
             objective.text = portal.child_count.ToString();
             score.text = holder.score.ToString();
+
+            if (player_entity.hp <= 0)
+            {
+                setHudDead();
+            }
         }
+    }
+
+    void setHudDead()
+    {
+        buttons.active = true;
+        hud.active = false;
+
+        final_score.text = "Score: " + holder.score.ToString();
+        hi_score.text = "Hi-score: " + holder.hi_score.ToString();
     }
 }
