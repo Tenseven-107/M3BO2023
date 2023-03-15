@@ -9,7 +9,7 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    public string start_scene_name = "SampleScene";
+    public string start_scene_name = "Level_1";
     public GameObject options_menu;
 
     public TextMeshProUGUI hi_score_text;

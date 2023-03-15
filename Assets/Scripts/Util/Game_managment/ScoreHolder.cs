@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class ScoreHolder : MonoBehaviour
 {
+    public string score_reset_scene = "Level_1";
     [HideInInspector] public int score = 0;
     [HideInInspector] public int hi_score = 0;
     string path;
@@ -36,6 +38,12 @@ public class ScoreHolder : MonoBehaviour
         Invoke("setHUD", 1);
 
         if (gameObject.tag != "ScoreHolder") gameObject.tag = "ScoreHolder";
+
+        if (SceneManager.GetActiveScene().name == score_reset_scene)
+        {
+            score = 0;
+            writeFile();
+        }
     }
 
 

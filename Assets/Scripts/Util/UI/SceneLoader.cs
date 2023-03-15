@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public float load_time = 1;
-    public string scene_name = "SampleScene";
+    public string scene_name = "Level_1";
     string scene_name_override = "";
 
     public Portal portal;

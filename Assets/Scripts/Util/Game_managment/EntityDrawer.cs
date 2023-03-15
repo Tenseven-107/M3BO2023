@@ -69,6 +69,11 @@ public class EntityDrawer : MonoBehaviour
         in_screen = false;
     }
 
+    private void OnDestroy()
+    {
+        in_screen = false;
+    }
+
     private void Update()
     {
         if (FindObjectOfType<SceneLoader>().loading) in_screen= false;

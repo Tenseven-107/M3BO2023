@@ -13,7 +13,7 @@ public class GameCamera : MonoBehaviour
     public float X_confiner = 0;
     public float Y_confiner = 0;
 
-    public Player player;
+    public GameObject target;
 
     float hitstop_time = 0;
 
@@ -26,7 +26,7 @@ public class GameCamera : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        if (player != null) transform.position = player.transform.position + cam_offset;
+        if (target != null) transform.position = target.transform.position + cam_offset;
         if (gameObject.tag != "MainCamera") gameObject.tag = "MainCamera";
 
         string path = Path.Combine(Application.persistentDataPath, "SettingsSave.json");
@@ -38,10 +38,10 @@ public class GameCamera : MonoBehaviour
         }
     }
 
-    
+
     void FixedUpdate()
     {
-        if (player != null)
+        if (target != null)
         {
             setCamPos();
         }
@@ -51,7 +51,7 @@ public class GameCamera : MonoBehaviour
     void setCamPos()
     {
         Vector3 current_cam_pos = transform.position;
-        Vector3 new_cam_pos = player.transform.position + cam_offset;
+        Vector3 new_cam_pos = target.transform.position + cam_offset;
         Vector3 pos = Vector3.Lerp(current_cam_pos, new_cam_pos, smoothing * Time.fixedDeltaTime);
 
         if (X_confiner != 0 && Y_confiner != 0)
@@ -81,6 +81,8 @@ public class GameCamera : MonoBehaviour
 
     public void screenshake(float screenshake_time, float screenshake_intensity)
     {
+        if (target != null) transform.position = target.transform.position + cam_offset;
+
         this.screenshake_time = screenshake_time;
         this.screenshake_intensity = screenshake_intensity / screenshake_mod;
         if (screenshake_intensity != 0 && !(screenshake_mod <= -100)) StartCoroutine(screenshakeLoop());
@@ -88,7 +90,7 @@ public class GameCamera : MonoBehaviour
 
     IEnumerator screenshakeLoop() 
     {
-        Vector3 original_pos = new Vector3(transform.localPosition.x, transform.localPosition.y, cam_offset.z);
+        Vector3 original_pos = new Vector3(transform.position.x, transform.position.y, cam_offset.z);
 
         for (float n = 0; n < screenshake_time; n += 0.01f)
         {
@@ -96,11 +98,11 @@ public class GameCamera : MonoBehaviour
             float Y = Random.Range(-screenshake_intensity, screenshake_intensity);
             Vector3 shake = original_pos + new Vector3(X, Y);
 
-            transform.localPosition = Vector3.Lerp(original_pos, shake, 1);
+            transform.position = Vector3.Lerp(original_pos, shake, 1);
 
             yield return null;
         }
-        transform.localPosition = original_pos;
+        transform.position = original_pos;
         yield break;
     }
 }

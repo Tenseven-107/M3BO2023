@@ -2085,7 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2522545beeedb4db68d9718f473b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_scene_name: SampleScene
+  start_scene_name: Level_1
   options_menu: {fileID: 2135790326}
   hi_score_text: {fileID: 1299304160}
 --- !u!1 &1067241475
