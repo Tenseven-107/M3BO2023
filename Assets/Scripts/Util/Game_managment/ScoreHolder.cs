@@ -10,9 +10,10 @@ using UnityEngine;
 public class ScoreHolder : MonoBehaviour
 {
     [HideInInspector] public int score = 0;
-    [HideInInspector] public int score_log = 0;
     [HideInInspector] public int hi_score = 0;
     string path;
+
+    PlayerHud hud;
 
 
     private void Start()
@@ -32,18 +33,23 @@ public class ScoreHolder : MonoBehaviour
             writeFile();
         }
 
-        if (gameObject.tag != "ScoreHolder") gameObject.tag = "ScoreHolder";
+        Invoke("setHUD", 1);
 
-        score_log = 0;
+        if (gameObject.tag != "ScoreHolder") gameObject.tag = "ScoreHolder";
     }
 
 
-    public void addScore(int added_score) { score += added_score; }
+    public void addScore(int added_score) 
+    { 
+        score += added_score;
+        setHudScore();
+    }
 
 
     public void submitScore(bool reset)
     {
-        score_log = score;
+        setHudScore();
+        setHudHiScore();
 
         if (score > hi_score) hi_score = score;
         if (reset) score = 0;
@@ -61,5 +67,29 @@ public class ScoreHolder : MonoBehaviour
         string json = JsonUtility.ToJson(save);
 
         File.WriteAllText(path, json);
+    }
+
+
+    void setHUD()
+    {
+        hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
+
+        setHudScore();
+    }
+
+    void setHudScore()
+    {
+        if (hud != null)
+        {
+            hud.Scorevalue = score;
+        }
+    }
+
+    void setHudHiScore()
+    {
+        if (hud != null)
+        {
+            hud.HiScorevalue = hi_score;
+        }
     }
 }

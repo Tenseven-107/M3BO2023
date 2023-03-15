@@ -8,6 +8,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [Range(5, 20)] public float cooldown = 10f;
+    WaitForSeconds cooldown_timer;
     float last;
 
     public bool move_with_camera = false;
@@ -25,6 +26,8 @@ public class SpawnManager : MonoBehaviour
         spawn_points = GetComponentsInChildren<Transform>();
         gc = GameObject.FindGameObjectWithTag("MainCamera");
 
+        cooldown_timer = new WaitForSeconds(cooldown);
+
         if (gameObject.tag != "SpawnManager") gameObject.tag = "SpawnManager";
 
         if (active) StartCoroutine(cycle());
@@ -40,7 +43,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (active)
         {
-            yield return new WaitForSeconds(cooldown);
+            yield return cooldown_timer;
             spawn();
         }
         if (active) yield break;

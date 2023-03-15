@@ -19,8 +19,9 @@ public class Entity : MonoBehaviour
     public int score = 5;
 
     bool flash = true;
+    WaitForSeconds flash_timer = new WaitForSeconds(0.05f);
+    WaitForSeconds flash_timer_short = new WaitForSeconds(0.025f);
     SpriteRenderer sprite;
-
     public GameObject death_effect;
 
     public bool juice = false;
@@ -70,16 +71,16 @@ public class Entity : MonoBehaviour
         Color color = sprite.color;
 
         sprite.color = Color.red;
-        yield return new WaitForSeconds(0.05f);
+        yield return flash_timer;
 
         for (float n = 0; n < i_frame_time; n += 0.1f)
         {
             if (flash)
             {
                 sprite.color = Color.clear;
-                yield return new WaitForSeconds(0.025f);
+                yield return flash_timer_short;
                 sprite.color = color;
-                yield return new WaitForSeconds(0.025f);
+                yield return flash_timer_short;
             }
             else break;
         }
@@ -101,6 +102,17 @@ public class Entity : MonoBehaviour
         }
 
         if (npc) Destroy(gameObject);
-        else gameObject.SetActive(false);
+        else setInactive();
+    }
+
+    void setInactive()
+    {
+        gameObject.SetActive(false);
+
+        PlayerHud hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
+        if (hud != null)
+        {
+            hud.setHudDead();
+        }
     }
 }

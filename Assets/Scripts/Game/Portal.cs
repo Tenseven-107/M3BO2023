@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Portal : MonoBehaviour
 {
@@ -13,16 +14,22 @@ public class Portal : MonoBehaviour
     bool active = false;
 
     SpriteRenderer sprite;
+    Animator anims;
+
+    PlayerHud hud;
 
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        anims = GetComponent<Animator>();
 
         child_count = transform.childCount;
 
         sprite.enabled = false;
         active = false;
+
+        Invoke("setHUD", 1);
 
         if (gameObject.tag != "Portal") gameObject.tag = "Portal";
     }
@@ -31,6 +38,8 @@ public class Portal : MonoBehaviour
     void OnTransformChildrenChanged()
     {
         child_count = transform.childCount;
+
+        setHudAltars();
         
         if (child_count <= 0)
         {
@@ -38,6 +47,8 @@ public class Portal : MonoBehaviour
             {
                 active = true;
                 sprite.enabled = true;
+
+                anims.Play("Portal_appear");
             }
             else spawnBoss();
         }
@@ -68,5 +79,22 @@ public class Portal : MonoBehaviour
                 m.active = false;
             }
         }  
+    }
+
+
+
+    void setHUD()
+    {
+        hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
+
+        setHudAltars();
+    }
+
+    void setHudAltars()
+    {
+        if (hud != null)
+        {
+            hud.Altarvalue = transform.childCount;
+        }
     }
 }

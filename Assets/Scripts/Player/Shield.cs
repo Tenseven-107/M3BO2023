@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class Shield : MonoBehaviour
 {
@@ -13,8 +12,10 @@ public class Shield : MonoBehaviour
     public float max_charge = 100;
     float charge;
 
+    WaitForSeconds flash_timer = new WaitForSeconds(0.05f);
+
     SpriteRenderer sprite;
-    Collider2D collider;
+    new Collider2D collider;
     Animator anims;
 
 
@@ -76,15 +77,8 @@ public class Shield : MonoBehaviour
 
     IEnumerator Flash()
     {
-        sprite.color = Color.green;
-        yield return new WaitForSeconds(0.05f);
-
-        for (float n = 0; n < 1; n += 0.1f)
-        {
-            sprite.color = Color.clear;
-            yield return new WaitForSeconds(0.025f);
-            sprite.color = Color.white;
-            yield return new WaitForSeconds(0.025f);
-        }
+        sprite.color = Color.clear;
+        yield return flash_timer;
+        sprite.color = Color.white;
     }
 }

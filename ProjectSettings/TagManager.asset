@@ -11,6 +11,7 @@ TagManager:
   - ScoreHolder
   - Portal
   - SpawnManager
+  - PlayerHud
   layers:
   - Default
   - TransparentFX

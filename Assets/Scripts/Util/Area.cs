@@ -8,7 +8,7 @@ public class Area : MonoBehaviour
     public bool stay = false;
     public bool is_colliding = false;
 
-    GameObject collider;
+    new GameObject collider;
 
 
     private void OnTriggerStay2D(Collider2D collision)

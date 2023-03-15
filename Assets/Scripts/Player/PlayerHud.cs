@@ -18,23 +18,81 @@ public class PlayerHud : MonoBehaviour
     TextMeshProUGUI final_score;
     TextMeshProUGUI hi_score;
 
-    Player player;
-    Entity player_entity;
-    ScoreHolder holder;
-    Portal portal;
-
     SceneLoader loader;
 
+    private int hp_value;
+    public int HPvalue
+    {
+        get { return hp_value; }
+        set
+        {
+            if (hp_value != value)
+            {
+                hp_value = value;
+                updateHP();
+            }
+        }
+    }
+    private float fuel_value;
+    public float Fuelvalue
+    {
+        get { return hp_value; }
+        set
+        {
+            if (fuel_value != value)
+            {
+                fuel_value = value;
+                updateFuel();
+            }
+        }
+    }
+    private int altar_value;
+    public int Altarvalue
+    {
+        get { return altar_value; }
+        set
+        {
+            if (altar_value != value)
+            {
+                altar_value = value;
+                updateAltars();
+            }
+        }
+    }
+    private int score_value;
+    public int Scorevalue
+    {
+        get { return score_value; }
+        set
+        {
+            score_value = value;
+            updateScore();
+        }
+    }
+    private int hi_score_value;
+    public int HiScorevalue
+    {
+        get { return hi_score_value; }
+        set
+        {
+            hi_score_value = value;
+        }
+    }
 
     void Start()
+    {
+        Invoke("Init", 0.1f);
+    }
+
+    void Init()
     {
         text = GetComponentsInChildren<TextMeshProUGUI>();
         loader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
 
-        hud.active = true;
-        buttons.active = false;
-        
-        if (text != null )
+        hud.SetActive(true);
+        buttons.SetActive(false);
+
+        if (text != null)
         {
             hp = text[0];
             fuel = text[1];
@@ -44,41 +102,35 @@ public class PlayerHud : MonoBehaviour
             hi_score = text[5];
         }
 
-        Invoke("Init", 0.01f);
-    }
-
-    private void Init()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        player_entity = GameObject.FindGameObjectWithTag("Player").GetComponent<Entity>();
-        holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
-        portal = GameObject.FindGameObjectWithTag("Portal").GetComponent<Portal>();
+        if (gameObject.tag != "PlayerHud") gameObject.tag = "PlayerHud";
     }
 
 
-    void Update()
+    void updateHP()
     {
-        if (holder != null && player != null)
-        {
-            hp.text = player_entity.hp.ToString();
-            fuel.text = player.fuel.ToString();
-            objective.text = portal.child_count.ToString();
-            score.text = holder.score.ToString();
-
-            if (player_entity.hp <= 0)
-            {
-                setHudDead();
-            }
-        }
+        hp.text = hp_value.ToString();
+    }
+    void updateFuel()
+    {
+        fuel.text = fuel_value.ToString();
+    }
+    void updateAltars()
+    {
+        objective.text = altar_value.ToString();
+    }
+    void updateScore()
+    {
+        score.text = score_value.ToString();
     }
 
-    void setHudDead()
-    {
-        buttons.active = true;
-        hud.active = false;
 
-        final_score.text = "Score: " + holder.score_log.ToString();
-        hi_score.text = "Hi-score: " + holder.hi_score.ToString();
+    public void setHudDead()
+    {
+        hud.SetActive(false);
+        buttons.SetActive(true);
+
+        final_score.text = "Score: " + score_value.ToString();
+        hi_score.text = "Hi-score: " + hi_score_value.ToString();
     }
 
 

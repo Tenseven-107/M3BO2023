@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     // General vars
     SpriteRenderer sprite;
+    PlayerHud hud;
 
     // Movement vars
     Vector2 velocity;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     public BulletShooter wp;
     public BulletShooter wp2;
     Entity entity;
+    int hp_value;
 
     // FX vars
     public ParticleSystem jet_particles;
@@ -47,6 +49,8 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         entity = GetComponent<Entity>();
 
+        Invoke("setHUD", 1);
+
         if (gameObject.tag != "Player") gameObject.tag = "Player";
 
         jet_particles.Stop();
@@ -57,7 +61,11 @@ public class Player : MonoBehaviour
     // Processing
     void Update()
     {
-        
+        if (entity.hp != hp_value && hud != null)
+        {
+            hp_value = entity.hp;
+            updateHudHP();
+        }
     }
     void FixedUpdate()
     {
@@ -107,6 +115,8 @@ public class Player : MonoBehaviour
             entity.invincible = true;
             jet_particles.Emit(1);
 
+            updateHudFuel();
+
             if (juice)
             {
                 GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
@@ -123,6 +133,8 @@ public class Player : MonoBehaviour
         {
             fuel += 0.5f;
             entity.invincible = false;
+
+            updateHudFuel();
 
             if (fuel >= max_fuel) 
             { 
@@ -157,6 +169,34 @@ public class Player : MonoBehaviour
         if (Input.GetKey("k"))
         {
             wp2.fire();
+        }
+    }
+
+
+
+    // Update hud elements
+    void setHUD()
+    {
+        hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
+
+        hp_value = entity.hp;
+        updateHudFuel();
+        updateHudHP();
+    }
+
+    void updateHudFuel()
+    {
+        if (hud != null)
+        {
+            hud.Fuelvalue = fuel;
+        }
+    }
+
+    void updateHudHP()
+    {
+        if (hud != null)
+        {
+            hud.HPvalue = hp_value;
         }
     }
 }
