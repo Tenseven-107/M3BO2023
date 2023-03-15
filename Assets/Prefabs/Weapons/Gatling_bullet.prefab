@@ -102,7 +102,10 @@ MonoBehaviour:
   speed: 10
   damage: 1
   team: 0
+  piercing: 0
   color: {r: 0.4509804, g: 0.9372549, b: 0.9098039, a: 1}
+  bullet_fx: 1
+  fx: {fileID: 6918265050022049252, guid: 55788b73d7c1974469390731dbeff6b7, type: 3}
 --- !u!70 &8937399902606823275
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

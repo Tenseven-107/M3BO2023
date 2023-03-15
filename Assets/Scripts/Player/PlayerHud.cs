@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class PlayerHud : MonoBehaviour
 {
@@ -20,6 +22,11 @@ public class PlayerHud : MonoBehaviour
 
     SceneLoader loader;
 
+    Animator anims;
+
+    public GameObject altar_icon;
+
+
     private int hp_value;
     public int HPvalue
     {
@@ -28,6 +35,7 @@ public class PlayerHud : MonoBehaviour
         {
             if (hp_value != value)
             {
+                if (hp_value >= value) anims.SetTrigger("Hit");
                 hp_value = value;
                 updateHP();
             }
@@ -79,6 +87,7 @@ public class PlayerHud : MonoBehaviour
         }
     }
 
+
     void Start()
     {
         Invoke("Init", 0.1f);
@@ -87,6 +96,7 @@ public class PlayerHud : MonoBehaviour
     void Init()
     {
         text = GetComponentsInChildren<TextMeshProUGUI>();
+        anims = GetComponent<Animator>();
         loader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
 
         hud.SetActive(true);
@@ -123,6 +133,13 @@ public class PlayerHud : MonoBehaviour
         score.text = score_value.ToString();
     }
 
+
+    public void setBoss()
+    {
+        GameObject altar_text = objective.gameObject;
+        altar_text.SetActive(false);
+        if (altar_icon!= null) altar_icon.SetActive(false);
+    }
 
     public void setHudDead()
     {

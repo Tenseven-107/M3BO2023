@@ -43,6 +43,8 @@ public class Portal : MonoBehaviour
         
         if (child_count <= 0)
         {
+            if (hud != null) hud.setBoss();
+
             if (boss_spawned || !boss)
             {
                 active = true;

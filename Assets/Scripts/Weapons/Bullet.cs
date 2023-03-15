@@ -13,6 +13,9 @@ public class Bullet : MonoBehaviour
     public Color color = Color.white;
     Rigidbody2D rb;
 
+    public bool bullet_fx = false;
+    public GameObject fx;
+
 
     void Start()
     {
@@ -45,6 +48,7 @@ public class Bullet : MonoBehaviour
         }
         if (collision.tag == "Obstacle")
         {
+            spawnFX();
             Destroy(gameObject);
         }
     }
@@ -57,8 +61,20 @@ public class Bullet : MonoBehaviour
             if (collider.team != team)
             {
                 collider.handleHit(damage);
+
+                spawnFX();
                 Destroy(gameObject);
             }
         }
+    }
+
+
+    private void spawnFX()
+    {
+        if (bullet_fx)
+        {
+            Transform parent = transform.parent;
+            Instantiate(fx, transform.position, Quaternion.Euler(0, 0, 0), parent);
+        }  
     }
 }
