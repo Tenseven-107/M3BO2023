@@ -1,2 +1,2 @@
-# Super_Bubblegum_EX_game
+# Super Bubblegum EX
  A game made for the 3rd term of school.
