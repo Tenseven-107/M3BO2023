@@ -24,6 +24,8 @@ public class SceneLoader : MonoBehaviour
         anims = GetComponentInChildren<Animator>();
         text = GetComponentInChildren<TextMeshProUGUI>();
 
+        anims.Play("Reset_transition");
+
         loading = false;
 
         if (portal != null) text.text = "Altars: " + portal.transform.childCount.ToString();

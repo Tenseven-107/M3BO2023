@@ -81,11 +81,11 @@ public class GameCamera : MonoBehaviour
 
     public void screenshake(float screenshake_time, float screenshake_intensity)
     {
-        if (target != null) transform.position = target.transform.position + cam_offset;
+        if (target != null && !checkIfBordered()) transform.position = target.transform.position + cam_offset;
 
         this.screenshake_time = screenshake_time;
         this.screenshake_intensity = screenshake_intensity / screenshake_mod;
-        if (screenshake_intensity != 0 && !(screenshake_mod <= -100)) StartCoroutine(screenshakeLoop());
+        if (screenshake_intensity != 0 && !(screenshake_mod <= -100) && !checkIfBordered()) StartCoroutine(screenshakeLoop());
     }
 
     IEnumerator screenshakeLoop() 
@@ -104,5 +104,18 @@ public class GameCamera : MonoBehaviour
         }
         transform.position = original_pos;
         yield break;
+    }
+
+
+    bool checkIfBordered()
+    {
+        float x = transform.position.x;
+        float y = transform.position.y;
+
+        if (x >= X_confiner || x <= -X_confiner || y >= Y_confiner || y <= -Y_confiner)
+        {
+            return true;
+        }
+        else return false;
     }
 }

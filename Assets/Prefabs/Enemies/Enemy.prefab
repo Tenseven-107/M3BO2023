@@ -191,8 +191,11 @@ MonoBehaviour:
   i_frame_time: 0.5
   npc: 1
   score: 2
-  death_effect: {fileID: 6918265050022049252, guid: a2072f6ab0d873a41abc37f4f3262407, type: 3}
+  death_effect: {fileID: 6918265050022049252, guid: 8ee83ce043c6467448d0b019aa6526ba, type: 3}
+  juice: 0
   hitstop_time: 0
+  screenshake_time: 0
+  screenshake_intensity: 0
 --- !u!114 &7209841062426857650
 MonoBehaviour:
   m_ObjectHideFlags: 0
