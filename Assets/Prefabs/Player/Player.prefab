@@ -4824,6 +4824,7 @@ GameObject:
   - component: {fileID: 6281231266734250397}
   - component: {fileID: 6281231266734250393}
   - component: {fileID: 6281231266734250392}
+  - component: {fileID: 1867090428272270700}
   - component: {fileID: 6281231266734250395}
   - component: {fileID: 5957789651448795062}
   - component: {fileID: 3569624949362082067}
@@ -4897,7 +4898,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ffde2eb6069174a4896a1c3ee29bd926, type: 3}
+  m_Sprite: {fileID: 1169240819, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4926,7 +4927,106 @@ MonoBehaviour:
     m_CategoryList:
     - m_Name: Entry
       m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: ffde2eb6069174a4896a1c3ee29bd926, type: 3}
+      m_Sprite: {fileID: 1169240819, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: 230992702, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 946544805, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_2
+      m_Hash: 0
+      m_Sprite: {fileID: -1128041638, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_3
+      m_Hash: 0
+      m_Sprite: {fileID: -192344020, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_4
+      m_Hash: 0
+      m_Sprite: {fileID: -628184656, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_5
+      m_Hash: 0
+      m_Sprite: {fileID: -98770002, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_6
+      m_Hash: 0
+      m_Sprite: {fileID: 1295100474, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+  - m_Name: Boost
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 1510254133, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: -1711308127, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: -84628300, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+  - m_Name: Hit
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: 626591609, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 1120244517, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+  - m_Name: Win
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 1814301464, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: -225039456, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 180202410, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_2
+      m_Hash: 0
+      m_Sprite: {fileID: -951335554, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_3
+      m_Hash: 0
+      m_Sprite: {fileID: -1686866298, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_4
+      m_Hash: 0
+      m_Sprite: {fileID: 1265268550, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_5
+      m_Hash: 0
+      m_Sprite: {fileID: 715095806, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_6
+      m_Hash: 0
+      m_Sprite: {fileID: -162059201, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_7
+      m_Hash: 0
+      m_Sprite: {fileID: 860881633, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_8
+      m_Hash: 0
+      m_Sprite: {fileID: -283416213, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_9
+      m_Hash: 0
+      m_Sprite: {fileID: 1545431302, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_10
+      m_Hash: 0
+      m_Sprite: {fileID: 571756418, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_11
+      m_Hash: 0
+      m_Sprite: {fileID: -874248012, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_12
+      m_Hash: 0
+      m_Sprite: {fileID: 1197691650, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_13
+      m_Hash: 0
+      m_Sprite: {fileID: -811218342, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_14
+      m_Hash: 0
+      m_Sprite: {fileID: -70140340, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_15
+      m_Hash: 0
+      m_Sprite: {fileID: -1661888553, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
+    - m_Name: Entry_16
+      m_Hash: 0
+      m_Sprite: {fileID: -2065610036, guid: fff6a41e56c186f4686d80edc40ccaa6, type: 3}
   m_SpriteLibraryAsset: {fileID: 0}
 --- !u!114 &6281231266734250392
 MonoBehaviour:
@@ -4943,6 +5043,26 @@ MonoBehaviour:
   m_CategoryHash: 0
   m_labelHash: 0
   m_SpriteKey: 1.2362407e-29
+--- !u!95 &1867090428272270700
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281231266734250396}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0381b2c80c6a27d4d89a972622a82549, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!70 &6281231266734250395
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5024,6 +5144,7 @@ MonoBehaviour:
   npc: 0
   score: 0
   death_effect: {fileID: 6918265050022049252, guid: 3d4bba16a29a67841a60411c339dfc92, type: 3}
+  anims: {fileID: 1867090428272270700}
   juice: 1
   hitstop_time: 0.025
   screenshake_time: 0.1

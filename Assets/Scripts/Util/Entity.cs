@@ -23,6 +23,7 @@ public class Entity : MonoBehaviour
     WaitForSeconds flash_timer_short = new WaitForSeconds(0.025f);
     SpriteRenderer sprite;
     public GameObject death_effect;
+    public Animator anims;
 
     public bool juice = false;
     [Range(0, 0.1f)] public float hitstop_time = 0;
@@ -56,6 +57,12 @@ public class Entity : MonoBehaviour
                 camera.hitstop(hitstop_time);
                 camera.screenshake(screenshake_time, screenshake_intensity);
             }
+
+            if (anims != null)
+            {
+                anims.ResetTrigger("Idle");
+                anims.SetTrigger("Hit");
+            }   
 
             if (hp <= 0)
             {

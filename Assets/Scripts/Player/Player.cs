@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,6 +8,7 @@ public class Player : MonoBehaviour
 {
     // General vars
     SpriteRenderer sprite;
+    Animator anims;
     PlayerHud hud;
 
     // Movement vars
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     bool recharging = false;
 
     bool facing_right = true;
+    bool active = true;
 
     // Combat vars
     public BulletShooter wp;
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
     // Set up
     void Start()
     {
+        active = true;
+
         Init();
     }
 
@@ -47,6 +52,7 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anims = GetComponent<Animator>();
         entity = GetComponent<Entity>();
 
         Invoke("setHUD", 1);
@@ -54,6 +60,7 @@ public class Player : MonoBehaviour
         if (gameObject.tag != "Player") gameObject.tag = "Player";
 
         jet_particles.Stop();
+        anims.SetTrigger("Idle");
     }
 
 
@@ -69,8 +76,11 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        movementLoop();
-        combatLoop();
+        if (active)
+        {
+            movementLoop();
+            combatLoop();
+        }  
     }
 
 
@@ -113,7 +123,9 @@ public class Player : MonoBehaviour
             fuel = Mathf.Clamp(fuel, 0, max_fuel);
 
             entity.invincible = true;
+
             jet_particles.Emit(1);
+            anims.SetTrigger("Boost");
 
             updateHudFuel();
 
@@ -127,12 +139,17 @@ public class Player : MonoBehaviour
             {
                 recharging = true;
                 entity.invincible = false;
+
+                anims.ResetTrigger("Boost");
+                anims.SetTrigger("Idle");
             }
         }
         if (!(Input.GetKey("l") || Input.GetKey("space")) && fuel < max_fuel)
         {
             fuel += 0.5f;
             entity.invincible = false;
+
+            anims.SetTrigger("Idle");
 
             updateHudFuel();
 
@@ -198,5 +215,18 @@ public class Player : MonoBehaviour
         {
             hud.HPvalue = hp_value;
         }
+    }
+
+
+    // Play Win animation
+    public void win()
+    {
+        active = false;
+
+        anims.ResetTrigger("Idle");
+        anims.ResetTrigger("Boost");
+        anims.SetTrigger("Win");
+
+        hud.setHudDead();
     }
 }
