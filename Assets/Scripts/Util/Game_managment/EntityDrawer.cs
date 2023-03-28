@@ -6,6 +6,7 @@ public class EntityDrawer : MonoBehaviour
     public float despawn_time = 0.5f;
     float long_despawn_time;
     public bool in_screen = false;
+    public bool can_despawn = true;
 
 
     private void Start()
@@ -13,6 +14,11 @@ public class EntityDrawer : MonoBehaviour
         in_screen = false;
         long_despawn_time = despawn_time * 5;
         StartCoroutine(despawn());
+
+        if (GetComponent<Animation>() != null)
+        {
+            GetComponent<Animation>().Stop();
+        }
     }
 
 
@@ -22,6 +28,11 @@ public class EntityDrawer : MonoBehaviour
         {
             in_screen = true;
             StopCoroutine(despawn());
+
+            if (GetComponent<Animation>() != null)
+            {
+                GetComponent<Animation>().Play();
+            }
         }
     }
 
@@ -32,6 +43,11 @@ public class EntityDrawer : MonoBehaviour
         {
             in_screen = false;
             StartCoroutine(WaitAndDespawn());
+
+            if (GetComponent<Animation>() != null)
+            {
+                GetComponent<Animation>().Stop();
+            }
         }
     }
 
@@ -45,7 +61,7 @@ public class EntityDrawer : MonoBehaviour
 
             yield return null;
         }
-        if (!in_screen) Destroy(gameObject);
+        if (!in_screen && can_despawn) Destroy(gameObject);
         else yield break;
     }
 
@@ -58,7 +74,7 @@ public class EntityDrawer : MonoBehaviour
 
             yield return null;
         }
-        if (!in_screen) Destroy(gameObject);
+        if (!in_screen && can_despawn) Destroy(gameObject);
         else yield break;
     }
 

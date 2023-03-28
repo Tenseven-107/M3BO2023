@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4827432006316303621}
   - component: {fileID: 4827432006316303625}
   - component: {fileID: 4827432006316303626}
+  - component: {fileID: 6017729301718497405}
   m_Layer: 0
   m_Name: Altar
   m_TagString: Untagged
@@ -196,6 +197,7 @@ MonoBehaviour:
   npc: 1
   score: 10
   death_effect: {fileID: 6918265050022049252, guid: f62c4428f9c145b45b2a34a90cbfa3f7, type: 3}
+  anims: {fileID: 0}
   juice: 1
   hitstop_time: 0.01
   screenshake_time: 0
@@ -214,3 +216,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   team: 1
+--- !u!114 &6017729301718497405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827432006316303630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325feefa17718b245932671a5a243078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawn_time: 0.5
+  in_screen: 0
+  can_despawn: 0
