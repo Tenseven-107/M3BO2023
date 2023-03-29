@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
             yield return cooldown_timer;
             spawn();
         }
-        if (active) yield break;
+        if (!active) yield break;
     }
 
 
