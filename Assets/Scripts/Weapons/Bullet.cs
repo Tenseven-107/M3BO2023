@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
     public Color color = Color.white;
     Rigidbody2D rb;
 
-    public bool bullet_fx = false;
     public GameObject fx;
 
 
@@ -71,7 +70,7 @@ public class Bullet : MonoBehaviour
 
     private void spawnFX()
     {
-        if (bullet_fx)
+        if (fx != null)
         {
             Transform parent = transform.parent;
             Instantiate(fx, transform.position, Quaternion.Euler(0, 0, 0), parent);

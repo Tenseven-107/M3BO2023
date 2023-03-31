@@ -41,23 +41,22 @@ public class Player : MonoBehaviour
     // Set up
     void Start()
     {
+        velocity = Vector2.zero;
+
         active = true;
+        if (gameObject.tag != "Player") gameObject.tag = "Player";
 
         Init();
     }
 
     private void Init()
     {
-        velocity = Vector2.zero;
-
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anims = GetComponent<Animator>();
         entity = GetComponent<Entity>();
 
         Invoke("setHUD", 1);
-
-        if (gameObject.tag != "Player") gameObject.tag = "Player";
 
         jet_particles.Stop();
         anims.SetTrigger("Idle");

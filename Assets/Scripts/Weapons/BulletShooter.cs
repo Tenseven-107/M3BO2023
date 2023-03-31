@@ -24,6 +24,7 @@ public class BulletShooter : MonoBehaviour
     [Range(0, 10)] public float screenshake_intensity = 0;
 
 
+    // Set up
     private void Start()
     {
         fire_trans = transform;
@@ -34,6 +35,7 @@ public class BulletShooter : MonoBehaviour
     }
 
 
+    // Fire bullets normally
     public void fire()
     {
         if (Time.time - last < cooldown)
@@ -64,6 +66,8 @@ public class BulletShooter : MonoBehaviour
         }
     }
 
+
+    // Fire bullets in a circular pattern
     public void fireCircle()
     {
         if (Time.time - last < cooldown)
