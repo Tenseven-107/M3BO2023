@@ -42,8 +42,7 @@ public class CombatDroneLogic : MonoBehaviour
         MOVE,
         FLIP,
         TURN,
-        POWERSHOT,
-        DIE
+        POWERSHOT
     }
 
     private States current_state;
@@ -74,7 +73,7 @@ public class CombatDroneLogic : MonoBehaviour
         transform.Rotate(0, 0, -angle);
 
         if (current_state != States.MOVE) rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.1f);
-        if (current_state != States.IDLE && !(entity.hp < entity.max_hp)) entity.invincible = true;
+        if (current_state != States.IDLE && entity.hp > entity.max_hp / 2) entity.invincible = true;
         else entity.invincible = false;
 
         stateMachine();
@@ -113,8 +112,6 @@ public class CombatDroneLogic : MonoBehaviour
                     anims.SetTrigger("Powershot");
                     StartCoroutine(secondAttack());
                 }
-                return;
-            case States.DIE:
                 return;
         }
     }

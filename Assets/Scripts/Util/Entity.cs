@@ -62,7 +62,7 @@ public class Entity : MonoBehaviour
             {
                 anims.ResetTrigger("Idle");
                 anims.SetTrigger("Hit");
-            }   
+            }
 
             if (hp <= 0)
             {

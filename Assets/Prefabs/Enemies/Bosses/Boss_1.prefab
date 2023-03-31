@@ -473,15 +473,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106dafa09bf0a5d42b5e13ebb6109ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 12
-  max_hp: 12
+  hp: 8
+  max_hp: 8
   team: 1
   godmode: 0
   invincible: 0
   i_frame_time: 2
   npc: 1
   score: 7
-  death_effect: {fileID: 0}
+  death_effect: {fileID: 3337605319864696583, guid: da9feaa9a72f5454e93fb6ca04b657a4, type: 3}
   anims: {fileID: 4895061251957254734}
   juice: 1
   hitstop_time: 0.025
