@@ -16,7 +16,7 @@ public class BossCenter : MonoBehaviour
     {
         if (player != null)
         {
-            Vector2 target_pos = Vector2.Lerp(transform.position, player.transform.position, 1);
+            Vector2 target_pos = Vector2.Lerp(transform.position, player.transform.position, 2);
             transform.position = target_pos;
 
             pos = transform.position;

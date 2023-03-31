@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     public int damage = 1;
     public int team = 0;
     public bool piercing = false;
+    public bool wall_piercing = false;
     public Color color = Color.white;
     Rigidbody2D rb;
 
@@ -45,7 +46,7 @@ public class Bullet : MonoBehaviour
                 if (!piercing) Destroy(gameObject);
             }
         }
-        if (collision.tag == "Obstacle")
+        if (collision.tag == "Obstacle" && !wall_piercing)
         {
             spawnFX();
             Destroy(gameObject);

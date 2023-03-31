@@ -139,7 +139,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   team: 1
-  piercing: 0
+  piercing: 1
+  wall_piercing: 1
   color: {r: 1, g: 0, b: 0, a: 1}
-  bullet_fx: 0
   fx: {fileID: 0}

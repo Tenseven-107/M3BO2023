@@ -9,22 +9,24 @@ using UnityEngine.UIElements;
 
 public class CombatDroneLogic : MonoBehaviour
 {
-    const float SPEED = 25;
+    const float SPEED = 55;
     const float AMPLITUDE = 0.5f;
-    const float FREQUENCY = 3;
-    const float ATTACK_DISTANCE = 2.5f;
+    const float FREQUENCY = 6;
+    const float ATTACK_DISTANCE = 2.85f;
 
     float last;
-    const float IDLETIME = 1.8f;
-    WaitForSeconds idle_timer = new WaitForSeconds(IDLETIME);
+    const float IDLE_TIME = 2f;
+    WaitForSeconds idle_timer = new WaitForSeconds(IDLE_TIME);
     bool is_idle = false;
 
-    const float ATTACKTIME = 0.8f;
-    WaitForSeconds attack_timer = new WaitForSeconds(ATTACKTIME);
+    const float ATTACK_TIME = 0.6f;
+    WaitForSeconds attack_timer = new WaitForSeconds(ATTACK_TIME);
     bool is_attacking = false;
 
     public BulletShooter auto_fire;
     public BulletShooter big_shot;
+    public BulletShooter power_shot;
+    public BulletShooter area_shot;
 
     BossCenter center;
     Rigidbody2D rb;
@@ -72,7 +74,7 @@ public class CombatDroneLogic : MonoBehaviour
         transform.Rotate(0, 0, -angle);
 
         if (current_state != States.MOVE) rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.1f);
-        if (current_state != States.IDLE) entity.invincible = true;
+        if (current_state != States.IDLE && !(entity.hp < entity.max_hp)) entity.invincible = true;
         else entity.invincible = false;
 
         stateMachine();
@@ -106,7 +108,11 @@ public class CombatDroneLogic : MonoBehaviour
                 }
                 return;
             case States.POWERSHOT:
-                anims.SetTrigger("Powershot");
+                if (!is_attacking)
+                {
+                    anims.SetTrigger("Powershot");
+                    StartCoroutine(secondAttack());
+                }
                 return;
             case States.DIE:
                 return;
@@ -144,6 +150,16 @@ public class CombatDroneLogic : MonoBehaviour
         yield break;
     }
 
+    IEnumerator secondAttack()
+    {
+        is_attacking = true;
+        yield return attack_timer;
+        power_shot.fire();
+        switchState(States.IDLE);
+        yield break;
+    }
+
+
     void move()
     {
         anims.SetTrigger("Fly");
@@ -157,9 +173,13 @@ public class CombatDroneLogic : MonoBehaviour
         rb.velocity = pos * SPEED * Time.fixedDeltaTime;
 
         float distance = Vector2.Distance(rb.position, center.pos);
-        if (distance < ATTACK_DISTANCE)
+        if (distance < ATTACK_DISTANCE && entity.hp >= entity.max_hp / 2)
         {
             auto_fire.fire();
+        }
+        else if (distance < ATTACK_DISTANCE && entity.hp < entity.max_hp / 2)
+        {
+            area_shot.fireCircle();
         }
         else if (distance > ATTACK_DISTANCE && entity.hp >= entity.max_hp / 2)
         {
@@ -171,7 +191,7 @@ public class CombatDroneLogic : MonoBehaviour
             }
             else switchState(States.TURN);
         }
-        else if (distance > ATTACK_DISTANCE && entity.hp >= entity.max_hp / 2) 
+        else if (distance > ATTACK_DISTANCE / 2 && entity.hp < entity.max_hp / 2)
         { 
             switchState(States.POWERSHOT);
         }
