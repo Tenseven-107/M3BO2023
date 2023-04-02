@@ -160,8 +160,8 @@ MonoBehaviour:
   damage: 1
   team: 0
   piercing: 1
+  wall_piercing: 1
   color: {r: 1, g: 0, b: 0.96968555, a: 1}
-  bullet_fx: 1
   fx: {fileID: 6918265050022049252, guid: 593a53073b0a6a84798534a4acbbfe6f, type: 3}
 --- !u!114 &4376001564788824156
 MonoBehaviour:

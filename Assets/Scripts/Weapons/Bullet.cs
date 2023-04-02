@@ -43,6 +43,7 @@ public class Bullet : MonoBehaviour
             {
                 collider.handleHit(damage);
 
+                spawnFX();
                 if (!piercing) Destroy(gameObject);
             }
         }

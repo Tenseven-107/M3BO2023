@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   in_screen: 0
-  time_out: 0.4
+  time_out: 2
   enemy: {fileID: 7393150373208691133, guid: a5517602d1de33d449873c8f559d50d9, type: 3}
 --- !u!212 &5794516635046097275
 SpriteRenderer:
