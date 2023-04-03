@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8809981010951714602}
   - component: {fileID: 8809981010951714603}
   - component: {fileID: 8809981010951714600}
+  - component: {fileID: 486829054096893180}
   m_Layer: 0
   m_Name: Test_boss
   m_TagString: Untagged
@@ -148,6 +149,12 @@ MonoBehaviour:
   i_frame_time: 0.5
   npc: 1
   score: 7
+  death_effect: {fileID: 0}
+  anims: {fileID: 0}
+  juice: 0
+  hitstop_time: 0
+  screenshake_time: 0
+  screenshake_intensity: 0
 --- !u!114 &8809981010951714602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawn_time: 0.5
   in_screen: 0
+  can_despawn: 1
 --- !u!114 &8809981010951714603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +199,18 @@ MonoBehaviour:
   speed: 25
   amplitude: 1.5
   frequency: 2
+--- !u!114 &486829054096893180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809981010951714606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9478cc808e9824bbdd6d9d36381aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8809981010076450380
 PrefabInstance:
   m_ObjectHideFlags: 0
