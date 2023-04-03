@@ -16,6 +16,7 @@ public class MusicPlayer : MonoBehaviour
         if (gameObject.tag != "MusicPlayer") gameObject.tag = "MusicPlayer";
 
         checkDoubles();
+        setSong(0);
     }
 
 
