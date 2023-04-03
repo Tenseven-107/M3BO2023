@@ -7,8 +7,10 @@ public class WinCondition : MonoBehaviour
     private void OnDestroy()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Player p = player.GetComponent<Player>();
-
-        p.win();
+        if (player != null)
+        {
+            Player p = player.GetComponent<Player>();
+            p.win();
+        }
     }
 }

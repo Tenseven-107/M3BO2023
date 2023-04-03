@@ -226,6 +226,9 @@ public class Player : MonoBehaviour
         anims.ResetTrigger("Boost");
         anims.SetTrigger("Win");
 
+        ScoreHolder holder = GameObject.FindGameObjectWithTag("ScoreHolder").GetComponent<ScoreHolder>();
+        holder.submitScore(true);
+
         hud.setHudDead();
     }
 }
