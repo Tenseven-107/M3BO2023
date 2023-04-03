@@ -12,6 +12,7 @@ TagManager:
   - Portal
   - SpawnManager
   - PlayerHud
+  - MusicPlayer
   layers:
   - Default
   - TransparentFX
