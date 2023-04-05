@@ -50,3 +50,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 715020e63a8cd6349b8a62e41c20d251, type: 3}
   - {fileID: 8300000, guid: 5fd26d0f9a1083d4fb69836836741336, type: 3}
   - {fileID: 8300000, guid: 4e4624e8b08d9834b98a44a7ccd0a99a, type: 3}
+  volume: 0.5

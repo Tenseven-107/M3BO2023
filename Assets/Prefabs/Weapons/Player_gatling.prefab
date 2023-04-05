@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6478370294471992487}
-  - component: {fileID: 5737662235556867646}
   - component: {fileID: 7369023113510577416}
   - component: {fileID: 2140260281804943152}
+  - component: {fileID: 5737662235556867646}
+  - component: {fileID: 6403456710368995460}
   m_Layer: 0
   m_Name: Player_gatling
   m_TagString: Untagged
@@ -34,27 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5737662235556867646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478370294471992486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3532ddd96c7e7b54ab4006da14d283c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0.045
-  bullets: 1
-  has_spread: 1
-  spread: 2
-  y_angle: 0
-  bullet: {fileID: 4881110261947480937, guid: 1f6f1808c5994f44f837ecd787e7bdab, type: 3}
-  juice: 0
-  screenshake_time: 0
-  screenshake_intensity: 0
 --- !u!199 &7369023113510577416
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4834,3 +4814,43 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5737662235556867646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478370294471992486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3532ddd96c7e7b54ab4006da14d283c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0.045
+  bullets: 1
+  has_spread: 1
+  spread: 2
+  y_angle: 0
+  bullet: {fileID: 4881110261947480937, guid: 1f6f1808c5994f44f837ecd787e7bdab, type: 3}
+  juice: 0
+  screenshake_time: 0
+  screenshake_intensity: 0
+  audio: {fileID: 6403456710368995460}
+--- !u!114 &6403456710368995460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478370294471992486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06eb697f1a20eb4fa9ad7857197aa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 9f9588b33fba433428748e73ca7b13f4, type: 3}
+  - {fileID: 8300000, guid: 1c8f8dec72c44fd4485776fc6851f5fa, type: 3}
+  max_pitch: 2.4
+  min_volume: 1
+  play_on_awake: 0

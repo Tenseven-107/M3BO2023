@@ -30,6 +30,8 @@ public class Entity : MonoBehaviour
     [Range(0, 1)] public float screenshake_time = 0;
     [Range(0, 10)] public float screenshake_intensity = 0;
 
+    public RandomAudio audio;
+
 
     private void Start()
     {
@@ -57,6 +59,8 @@ public class Entity : MonoBehaviour
                 camera.hitstop(hitstop_time);
                 camera.screenshake(screenshake_time, screenshake_intensity);
             }
+
+            if (audio != null) audio.playSound();
 
             if (anims != null)
             {

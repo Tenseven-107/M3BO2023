@@ -1,0 +1,7 @@
+- Explain that you need to destroy altars.
+
+- Add functionality to start the game with space and quit with escape in the main menu.
+
+- Give the player more hp / make altars give you hp back.
+
+- Add tutorial arrows in the first level.

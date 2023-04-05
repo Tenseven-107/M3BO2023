@@ -29,6 +29,19 @@ public class MainMenu : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            StartGame();
+        }
+        if (Input.GetKeyDown("escape")) 
+        { 
+            Quit();
+        }
+    }
+
+
     public void StartGame()
     {
         SceneManager.LoadScene(start_scene_name);

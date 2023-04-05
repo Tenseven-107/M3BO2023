@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
 
 
     // Update hud elements
-    void setHUD()
+    public void setHUD()
     {
         hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
 

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4827432006316303621}
   - component: {fileID: 4827432006316303625}
   - component: {fileID: 4827432006316303626}
+  - component: {fileID: 2057750442236273798}
   - component: {fileID: 6017729301718497405}
   m_Layer: 0
   m_Name: Altar
@@ -216,6 +217,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   team: 1
+--- !u!114 &2057750442236273798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827432006316303630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e43a29956e0c0449fb8b6568d2962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6017729301718497405
 MonoBehaviour:
   m_ObjectHideFlags: 0

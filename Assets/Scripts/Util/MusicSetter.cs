@@ -10,7 +10,7 @@ public class MusicSetter : MonoBehaviour
     {
         GameObject music_player = GameObject.FindGameObjectWithTag("MusicPlayer");
         MusicPlayer mp = music_player.GetComponent<MusicPlayer>();
-
+        
         mp.setSong(song);
     }
 }

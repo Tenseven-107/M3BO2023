@@ -17,12 +17,6 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        getInput();
-    }
-
-
-    void getInput()
-    {
         if (Input.GetKeyDown("escape") && !is_paused)
         {
             is_paused = true;

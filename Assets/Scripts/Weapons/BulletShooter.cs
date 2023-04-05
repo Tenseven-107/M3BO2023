@@ -23,6 +23,8 @@ public class BulletShooter : MonoBehaviour
     [Range(0, 1)] public float screenshake_time = 0;
     [Range(0, 10)] public float screenshake_intensity = 0;
 
+    public RandomAudio audio;
+
 
     // Set up
     private void Start()
@@ -44,12 +46,6 @@ public class BulletShooter : MonoBehaviour
         }
         last = Time.time;
 
-        if (juice)
-        {
-            GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
-            camera.screenshake(screenshake_time, screenshake_intensity);
-        }
-
         for (int i = 0; i < bullets; i++)
         {
             if (has_spread)
@@ -64,6 +60,14 @@ public class BulletShooter : MonoBehaviour
 
             if (particle != null) particle.Emit(1);
         }
+
+        if (juice)
+        {
+            GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
+            camera.screenshake(screenshake_time, screenshake_intensity);
+        }
+
+        if (audio != null) audio.playSound();
     }
 
 
@@ -75,12 +79,6 @@ public class BulletShooter : MonoBehaviour
             return;
         }
         last = Time.time;
-
-        if (juice)
-        {
-            GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
-            camera.screenshake(screenshake_time, screenshake_intensity);
-        }
 
         float rot = 360 / bullets;
         float current_rot;
@@ -95,5 +93,13 @@ public class BulletShooter : MonoBehaviour
         }
         
         if (particle != null) particle.Emit(1);
+
+        if (juice)
+        {
+            GameCamera camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameCamera>();
+            camera.screenshake(screenshake_time, screenshake_intensity);
+        }
+
+        if (audio != null) audio.playSound();
     }
 }
