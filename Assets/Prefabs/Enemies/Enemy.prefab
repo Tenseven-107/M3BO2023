@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2344026907529941709}
   - component: {fileID: 7209841062426857651}
   - component: {fileID: 7209841062426857662}
+  - component: {fileID: 4814963787419749926}
   - component: {fileID: 7209841062426857650}
   m_Layer: 0
   m_Name: Enemy
@@ -192,10 +193,30 @@ MonoBehaviour:
   npc: 1
   score: 2
   death_effect: {fileID: 6918265050022049252, guid: 8ee83ce043c6467448d0b019aa6526ba, type: 3}
+  anims: {fileID: 0}
   juice: 0
   hitstop_time: 0
   screenshake_time: 0
   screenshake_intensity: 0
+  audio: {fileID: 4814963787419749926}
+--- !u!114 &4814963787419749926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209841062426857657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06eb697f1a20eb4fa9ad7857197aa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 0376ca0c629b40342922f6a1cce46053, type: 3}
+  - {fileID: 8300000, guid: 702f653b8f5927d4085e891e22ef88ea, type: 3}
+  max_pitch: 1.5
+  min_volume: 1
+  play_on_awake: 0
 --- !u!114 &7209841062426857650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,3 +231,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawn_time: 0.35
   in_screen: 0
+  can_despawn: 1

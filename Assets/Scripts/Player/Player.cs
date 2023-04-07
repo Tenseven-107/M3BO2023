@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     public bool juice = true;
     [Range(0, 1)] public float boost_screenshake_time = 0.1f;
     [Range(0, 10)] public float boost_screenshake_intensity = 0.15f;
+    public AudioSource boost_audio;
+    public RandomAudio fuel_depleted;
+    public RandomAudio fuel_up;
 
 
     // Set up
@@ -125,6 +128,7 @@ public class Player : MonoBehaviour
 
             jet_particles.Emit(1);
             anims.SetTrigger("Boost");
+            if (!boost_audio.isPlaying) boost_audio.Play();
 
             updateHudFuel();
 
@@ -141,6 +145,8 @@ public class Player : MonoBehaviour
 
                 anims.ResetTrigger("Boost");
                 anims.SetTrigger("Idle");
+                boost_audio.Stop();
+                fuel_depleted.playSound();
             }
         }
         if (!(Input.GetKey("l") || Input.GetKey("space")) && fuel < max_fuel)
@@ -149,12 +155,14 @@ public class Player : MonoBehaviour
             entity.invincible = false;
 
             anims.SetTrigger("Idle");
+            boost_audio.Stop();
 
             updateHudFuel();
 
             if (fuel >= max_fuel) 
             { 
                 recharging = false;
+                fuel_up.playSound();
             }
         }
 
@@ -193,11 +201,16 @@ public class Player : MonoBehaviour
     // Update hud elements
     public void setHUD()
     {
-        hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
+        GameObject obj = GameObject.FindGameObjectWithTag("PlayerHud");
 
-        hp_value = entity.hp;
-        updateHudFuel();
-        updateHudHP();
+        if (obj != null)
+        {
+            hud = obj.GetComponent<PlayerHud>();
+
+            hp_value = entity.hp;
+            updateHudFuel();
+            updateHudHP();
+        }
     }
 
     void updateHudFuel()

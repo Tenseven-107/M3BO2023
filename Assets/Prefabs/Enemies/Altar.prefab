@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4827432006316303625}
   - component: {fileID: 4827432006316303626}
   - component: {fileID: 2057750442236273798}
+  - component: {fileID: 8516624944770946163}
   - component: {fileID: 6017729301718497405}
   m_Layer: 0
   m_Name: Altar
@@ -189,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106dafa09bf0a5d42b5e13ebb6109ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
-  max_hp: 3
+  hp: 5
+  max_hp: 5
   team: 1
   godmode: 0
   invincible: 0
@@ -203,6 +204,7 @@ MonoBehaviour:
   hitstop_time: 0.01
   screenshake_time: 0
   screenshake_intensity: 0
+  audio: {fileID: 8516624944770946163}
 --- !u!114 &4827432006316303626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +231,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e43a29956e0c0449fb8b6568d2962b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heal_hp: 1
+--- !u!114 &8516624944770946163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827432006316303630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06eb697f1a20eb4fa9ad7857197aa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 1dc0a26290ed2bc43825e7201b14bf39, type: 3}
+  max_pitch: 2
+  min_volume: 1
+  play_on_awake: 0
 --- !u!114 &6017729301718497405
 MonoBehaviour:
   m_ObjectHideFlags: 0

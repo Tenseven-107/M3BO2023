@@ -42,6 +42,8 @@ public class PlayerHud : MonoBehaviour
         }
     }
     private float fuel_value;
+    private float fuel_value_max = 100;
+    private bool refueled = true;
     public float Fuelvalue
     {
         get { return hp_value; }
@@ -49,6 +51,16 @@ public class PlayerHud : MonoBehaviour
         {
             if (fuel_value != value)
             {
+                if (value <= 0 || !refueled)
+                {
+                    refueled = false;
+                }
+                if (!refueled && value >= fuel_value_max)
+                {
+                    refueled = true;
+                }
+                anims.SetBool("Refueled", refueled);
+                    
                 fuel_value = value;
                 updateFuel();
             }

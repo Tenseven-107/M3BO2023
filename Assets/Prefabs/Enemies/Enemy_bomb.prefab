@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3650851973823515257}
   - component: {fileID: 3650851973823515258}
   - component: {fileID: 3650851973823515261}
+  - component: {fileID: 6251954277597074262}
   m_Layer: 0
   m_Name: Enemy_bomb
   m_TagString: Untagged
@@ -126,10 +127,12 @@ MonoBehaviour:
   npc: 1
   score: 5
   death_effect: {fileID: 6918265050022049252, guid: a2072f6ab0d873a41abc37f4f3262407, type: 3}
+  anims: {fileID: 0}
   juice: 1
   hitstop_time: 0.005
   screenshake_time: 0
   screenshake_intensity: 0
+  audio: {fileID: 6251954277597074262}
 --- !u!114 &3650851973823515261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +145,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7682ae07d019e014b97104ad5cb165a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6251954277597074262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650851973823515263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06eb697f1a20eb4fa9ad7857197aa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: af3ef71462f944747ae5bce269f9ead9, type: 3}
+  max_pitch: 1.5
+  min_volume: 1
+  play_on_awake: 0
 --- !u!1001 &3650851971949066079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,12 +318,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 3650851973823515256}
     m_Modifications:
     - target: {fileID: 5737662235556867646, guid: 8d984a3e9e9a8604984962a77035a3a4, type: 3}
+      propertyPath: juice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737662235556867646, guid: 8d984a3e9e9a8604984962a77035a3a4, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 4881110261947480937, guid: ac44cbc188740e74b8d2b05c1ed53a09, type: 3}
+      objectReference: {fileID: 4881110261947480937, guid: cd83f47c95cce6f47b18914cf34f832f, type: 3}
     - target: {fileID: 5737662235556867646, guid: 8d984a3e9e9a8604984962a77035a3a4, type: 3}
       propertyPath: bullets
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737662235556867646, guid: 8d984a3e9e9a8604984962a77035a3a4, type: 3}
+      propertyPath: screenshake_time
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737662235556867646, guid: 8d984a3e9e9a8604984962a77035a3a4, type: 3}
+      propertyPath: screenshake_intensity
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6478370294471992486, guid: 8d984a3e9e9a8604984962a77035a3a4, type: 3}
       propertyPath: m_Name

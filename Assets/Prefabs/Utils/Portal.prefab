@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6523673893830509815}
   - component: {fileID: 7792427161317494215}
   - component: {fileID: 706813207209284466}
+  - component: {fileID: 4726648419806681077}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -240,3 +241,20 @@ MonoBehaviour:
   boss: 0
   boss_obj: {fileID: 0}
   child_count: 0
+--- !u!114 &4726648419806681077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706813207209284469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06eb697f1a20eb4fa9ad7857197aa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 4fb46458aaad9cf41b274f7e2c2d22d5, type: 3}
+  max_pitch: 1.2
+  min_volume: 1
+  play_on_awake: 1

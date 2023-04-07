@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6478370294471992487}
   - component: {fileID: 5737662235556867646}
-  - component: {fileID: 8784565697086573480}
   m_Layer: 0
   m_Name: BulletShooter
   m_TagString: Untagged
@@ -54,21 +53,4 @@ MonoBehaviour:
   juice: 0
   screenshake_time: 0
   screenshake_intensity: 0
-  audio: {fileID: 8784565697086573480}
---- !u!114 &8784565697086573480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478370294471992486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06eb697f1a20eb4fa9ad7857197aa9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: ce7595adf23f9b34ba33e7700b6078db, type: 3}
-  max_pitch: 1.5
-  min_volume: 1
-  play_on_awake: 0
+  audio: {fileID: 0}
