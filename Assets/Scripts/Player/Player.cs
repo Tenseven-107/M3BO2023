@@ -116,9 +116,8 @@ public class Player : MonoBehaviour
             velocity = Vector2.zero;
         }
 
-
         // Boosting
-        if ((Input.GetKey("l") || Input.GetKey("space")) && (InputX != 0 || InputY != 0) && fuel > 0 && !recharging)
+        if ((Input.GetKey("l") || Input.GetKey("space")) && velocity != Vector2.zero && fuel > 0 && !recharging)
         {
             velocity.x *= boost_modifier;
             fuel -= 1;
@@ -149,7 +148,7 @@ public class Player : MonoBehaviour
                 fuel_depleted.playSound();
             }
         }
-        if (!(Input.GetKey("l") || Input.GetKey("space")) && fuel < max_fuel)
+        if ((!(Input.GetKey("l") || Input.GetKey("space")) || velocity == Vector2.zero) && fuel < max_fuel)
         {
             fuel += 0.5f;
             entity.invincible = false;
