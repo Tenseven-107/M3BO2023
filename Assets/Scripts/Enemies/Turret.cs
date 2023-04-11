@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Turret : MonoBehaviour
     public Area area;
 
     public bool circle = true;
-    public bool follow_target = false;
+    public bool follow = false;
     public bool kill = false;
 
     void Update()
@@ -18,15 +19,18 @@ public class Turret : MonoBehaviour
             if (circle) wp.fireCircle();
             else wp.fire();
 
-            if (follow_target)
-            {
-                GameObject target = area.getObject();
-                Vector2 relative = transform.InverseTransformPoint(target.transform.position);
-                float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
-                wp.transform.Rotate(0, 0, -angle);
-            }
-
             if (kill) Destroy(gameObject);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (area.is_colliding && follow)
+        {
+            GameObject target = area.getObject();
+            Vector2 relative = transform.InverseTransformPoint(target.transform.position);
+            float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg - 90;
+            transform.Rotate(0, 0, -angle);
         }
     }
 }
