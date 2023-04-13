@@ -37,7 +37,7 @@ public class Shield : MonoBehaviour
         if (hp > 0 && !recharging)
         {
             hp -= damage;
-            StartCoroutine(Flash());
+            if (gameObject.activeSelf) StartCoroutine(Flash());
 
             if (hp <= 0)
             {

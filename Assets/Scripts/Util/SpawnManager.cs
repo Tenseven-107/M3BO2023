@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [Range(5, 20)] public float cooldown = 10f;
+    [Range(2.5f, 20)] public float cooldown = 10f;
     WaitForSeconds cooldown_timer;
     float last;
 
