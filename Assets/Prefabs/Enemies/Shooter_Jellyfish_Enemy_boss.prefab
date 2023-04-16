@@ -49,7 +49,7 @@ MonoBehaviour:
   has_spread: 0
   spread: 0
   y_angle: 0
-  bullet: {fileID: 4881110261947480937, guid: ac44cbc188740e74b8d2b05c1ed53a09, type: 3}
+  bullet: {fileID: 4881110261947480937, guid: 7eddbc62faa15a649b1e4a444ebf6e79, type: 3}
   juice: 0
   screenshake_time: 0
   screenshake_intensity: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawn_time: 0.5
   in_screen: 0
-  can_despawn: 1
+  can_despawn: 0
 --- !u!114 &8809981010951714603
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,13 +8,14 @@ public class Turret : MonoBehaviour
     public BulletShooter wp;
     public Area area;
 
+    public bool active = true;
     public bool circle = true;
     public bool follow = false;
     public bool kill = false;
 
     void Update()
     {
-        if (area.is_colliding)
+        if (area.is_colliding && active)
         {
             if (circle) wp.fireCircle();
             else wp.fire();

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class WinCondition : MonoBehaviour
 {
+    public Entity entity;
+
     private void OnDestroy()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+        if (entity != null && entity.hp <= 0)
         {
-            Player p = player.GetComponent<Player>();
-            p.win();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                Player p = player.GetComponent<Player>();
+                p.win();
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ public class KillBox : MonoBehaviour
         GameObject obj = collision.gameObject;
         Entity entity = obj.GetComponent<Entity>();
 
-        if (entity != null)
+        if (entity != null && obj.activeSelf)
         {
             if (entity.team != team && Active)
             {

@@ -154,6 +154,7 @@ MonoBehaviour:
   hitstop_time: 0
   screenshake_time: 0
   screenshake_intensity: 0
+  audio: {fileID: 0}
 --- !u!114 &8809981010951714603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9478cc808e9824bbdd6d9d36381aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 8809981010951714645}
 --- !u!1001 &8809981010076450380
 PrefabInstance:
   m_ObjectHideFlags: 0

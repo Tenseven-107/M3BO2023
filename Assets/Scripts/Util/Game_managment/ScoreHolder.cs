@@ -17,6 +17,7 @@ public class ScoreHolder : MonoBehaviour
     PlayerHud hud;
 
 
+    // Set up
     private void Start()
     {
         path = Path.Combine(Application.persistentDataPath, "Save.json");
@@ -46,6 +47,7 @@ public class ScoreHolder : MonoBehaviour
     }
 
 
+    // Add score
     public void addScore(int added_score) 
     { 
         score += added_score;
@@ -53,6 +55,7 @@ public class ScoreHolder : MonoBehaviour
     }
 
 
+    // Submit score
     public void submitScore(bool reset)
     {
         setHudScore();
@@ -65,6 +68,7 @@ public class ScoreHolder : MonoBehaviour
     }
 
 
+    // Write in score save file
     private void writeFile()
     {
         ScoreSave save = new ScoreSave();
@@ -77,6 +81,7 @@ public class ScoreHolder : MonoBehaviour
     }
 
 
+    // Update score hud elements
     void setHUD()
     {
         hud = GameObject.FindGameObjectWithTag("PlayerHud").GetComponent<PlayerHud>();
