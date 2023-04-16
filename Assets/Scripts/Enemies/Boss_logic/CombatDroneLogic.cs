@@ -13,7 +13,6 @@ public class CombatDroneLogic : MonoBehaviour
     const float FREQUENCY = 6;
     const float ATTACK_DISTANCE = 2.85f;
 
-    float last;
     const float IDLE_TIME = 2f;
     WaitForSeconds idle_timer = new WaitForSeconds(IDLE_TIME);
     bool is_idle = false;

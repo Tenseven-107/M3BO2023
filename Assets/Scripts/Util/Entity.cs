@@ -98,7 +98,7 @@ public class Entity : MonoBehaviour
     }
 
 
-    void die()
+    public void die()
     {
         if (GetComponent<EntityDrawer>() != null) GetComponent<EntityDrawer>().in_screen = false;
 
