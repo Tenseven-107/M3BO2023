@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class AncientKoloktosLogic : MonoBehaviour
 {
@@ -19,6 +18,7 @@ public class AncientKoloktosLogic : MonoBehaviour
     WaitForSeconds attack_timer = new WaitForSeconds(ATTACK_TIME);
 
     public Turret auto_fire;
+    public Turret rot_fire;
     public Turret bomb_shot;
     public Turret wave_shot;
     public Turret bomb_cirle;
@@ -198,11 +198,13 @@ public class AncientKoloktosLogic : MonoBehaviour
     IEnumerator fire()
     {
         is_attacking = true;
-        auto_fire.active = true;
+        if (current_phase == Phases.TWO) auto_fire.active = true;
+        else rot_fire.active = true;
 
         float time = fire_time + Mathf.Round((0.25f / entity.hp) * 100);
         yield return new WaitForSeconds(time);
-        auto_fire.active = false;
+        if (current_phase == Phases.TWO) auto_fire.active = false;
+        else rot_fire.active = false;
         switchState(States.IDLE);
         yield break;
     }

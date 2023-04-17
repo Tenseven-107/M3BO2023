@@ -5591,6 +5591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145cb53f3c2f898408fb35b24b1a65ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uncapped: 0
   heal_effect: {fileID: 6918265050022049252, guid: f2619bc285f83e54b9864a1bf0e9a34c, type: 3}
   audio: {fileID: 9211238418905404254}
 --- !u!114 &1917478552025398520

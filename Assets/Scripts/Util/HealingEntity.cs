@@ -8,6 +8,8 @@ public class HealingEntity : MonoBehaviour
     int hp;
     int max_hp;
 
+    public bool uncapped = false;
+
     public GameObject heal_effect;
     public RandomAudio audio;
 
@@ -25,7 +27,7 @@ public class HealingEntity : MonoBehaviour
         hp = entity.hp;
         max_hp = entity.max_hp;
 
-        if (hp < max_hp) entity.hp += added_hp;
+        if (hp < max_hp || uncapped) entity.hp += added_hp;
         if (heal_effect != null)
         {
             Transform parent = transform.parent;
