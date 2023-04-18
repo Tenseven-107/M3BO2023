@@ -294,7 +294,7 @@ MonoBehaviour:
   i_frame_time: 1.25
   npc: 1
   score: 500
-  death_effect: {fileID: 0}
+  death_effect: {fileID: 6918265050022049252, guid: 97518f6ab3ab8964588bb2168a53ea38, type: 3}
   anims: {fileID: 0}
   juice: 1
   hitstop_time: 0.025
