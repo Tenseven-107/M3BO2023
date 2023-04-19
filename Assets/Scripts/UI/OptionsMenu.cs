@@ -51,6 +51,7 @@ public class OptionsMenu : MonoBehaviour
 
         Screen.fullScreen = fullscreen_bool;
         Application.targetFrameRate = framerate_value;
+        AudioListener.volume = volume_value;
 
         fullscreen.onValueChanged.AddListener((value) =>
         {
@@ -77,7 +78,7 @@ public class OptionsMenu : MonoBehaviour
         volume.onValueChanged.AddListener((volume) =>
         {
             volume_value = volume;
-            print(volume_value);
+            AudioListener.volume = volume;
             applySettings();
         });
     }
