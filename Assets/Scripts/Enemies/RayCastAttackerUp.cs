@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_flower : MonoBehaviour
+public class RayCastAttackerUp : MonoBehaviour
 {
-    BulletShooter wp;
+    public BulletShooter wp;
 
     void Start()
     {
-        wp = GetComponentInChildren<BulletShooter>();
-
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
 
