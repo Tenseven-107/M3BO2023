@@ -90,8 +90,15 @@ public class Player : MonoBehaviour
     // Movement
     void movementLoop()
     {
+        // Movement controls
         float InputX = Input.GetAxisRaw("Horizontal");
         float InputY = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetJoystickNames()[0] != "")
+        {
+            InputX = Input.GetAxis("MoveHorizontal");
+            InputY = Input.GetAxis("MoveVertical");
+        }
         
         // Setting movement
         if (InputX != 0 || InputY != 0)
@@ -117,7 +124,7 @@ public class Player : MonoBehaviour
         }
 
         // Boosting
-        if ((Input.GetKey("l") || Input.GetKey("space")) && velocity != Vector2.zero && fuel > 0 && !recharging)
+        if (Input.GetButton("Boost") && velocity != Vector2.zero && fuel > 0 && !recharging)
         {
             velocity.x *= boost_modifier;
             fuel -= 1;
@@ -148,7 +155,7 @@ public class Player : MonoBehaviour
                 fuel_depleted.playSound();
             }
         }
-        if ((!(Input.GetKey("l") || Input.GetKey("space")) || velocity == Vector2.zero) && fuel < max_fuel)
+        if ((!Input.GetButton("Boost") || velocity == Vector2.zero) && fuel < max_fuel)
         {
             fuel += 0.5f;
             entity.invincible = false;
@@ -185,11 +192,11 @@ public class Player : MonoBehaviour
     // Combat input
     void combatLoop()
     {
-        if (Input.GetKey("j"))
+        if (Input.GetButton("FireNormal"))
         {
             wp.fire();
         }
-        if (Input.GetKey("k"))
+        if (Input.GetButton("FireSpecial"))
         {
             wp2.fire();
         }

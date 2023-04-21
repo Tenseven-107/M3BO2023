@@ -29,7 +29,7 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetButtonDown("Cancel"))
         {
             StartCoroutine(WaitAndUnpause());
         }

@@ -62,11 +62,11 @@ public class SceneLoader : MonoBehaviour
 
 
     // MESSAGE FOR FUTURE ME:    - Replace null text with objective
-    void Update() // REMOVE LATER
-    {
-        if (Input.GetKeyDown("y"))
-        {
-            transition(""); // TEST FUNCTIONALITY. CHANGE LATER
-        }
-    }
+    //void Update() // REMOVE LATER
+    //{
+        //if (Input.GetKeyDown("y"))
+        //{
+            //transition(""); // TEST FUNCTIONALITY. CHANGE LATER
+        //}
+    //}
 }

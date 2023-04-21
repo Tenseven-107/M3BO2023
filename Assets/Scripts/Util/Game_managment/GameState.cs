@@ -17,7 +17,7 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("escape") && !is_paused)
+        if (Input.GetButtonDown("Cancel") && !is_paused)
         {
             is_paused = true;
             GameObject pause_screen = Instantiate(pause, transform.position, transform.rotation);

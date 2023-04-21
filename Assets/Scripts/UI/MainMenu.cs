@@ -31,11 +31,11 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Boost"))
         {
             StartGame();
         }
-        if (Input.GetKeyDown("escape")) 
+        if (Input.GetButtonDown("Cancel")) 
         { 
             Quit();
         }
