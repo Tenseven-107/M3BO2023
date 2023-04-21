@@ -94,10 +94,13 @@ public class Player : MonoBehaviour
         float InputX = Input.GetAxisRaw("Horizontal");
         float InputY = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetJoystickNames()[0] != "")
+        if (Input.GetJoystickNames().Length > 0)
         {
-            InputX = Input.GetAxis("MoveHorizontal");
-            InputY = Input.GetAxis("MoveVertical");
+            if (Input.GetJoystickNames()[0] != "")
+            {
+                InputX = Input.GetAxis("MoveHorizontal");
+                InputY = Input.GetAxis("MoveVertical");
+            }
         }
         
         // Setting movement
