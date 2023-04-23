@@ -18,6 +18,9 @@ public class Shield : MonoBehaviour
     new Collider2D collider;
     Animator anims;
 
+    public RandomAudio hit_sfx;
+    public RandomAudio break_sfx;
+
 
     private void Start()
     {
@@ -39,12 +42,16 @@ public class Shield : MonoBehaviour
             hp -= damage;
             if (gameObject.activeSelf) StartCoroutine(Flash());
 
+            hit_sfx.playSound();
+
             if (hp <= 0)
             {
                 recharging = true;
                 charge = 0;
 
                 collider.enabled = false;
+
+                break_sfx.playSound();
 
                 anims.SetTrigger("Dissapear");
                 anims.ResetTrigger("Appear");
