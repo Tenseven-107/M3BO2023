@@ -25,7 +25,6 @@ public class Enemy_jellyfish : MonoBehaviour
     void FixedUpdate()
     {
         GameObject target = area.getObject();
-        Entity entity = area.getEntity();
 
         if (area.is_colliding && target != null)
         {

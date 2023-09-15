@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // - De speler Class script voldoet niet aan SRP.
+
+    // - Momenteel kan je boosten, normaal rond bewegen, past hij de HUD aan, particles spawnen en speelt een "win" animatie af.
+    // - Dit kunnen we opsplitsen.
+
     // General vars
     SpriteRenderer sprite;
     Animator anims;
