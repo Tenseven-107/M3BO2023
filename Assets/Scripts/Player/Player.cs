@@ -90,7 +90,8 @@ public class Player : MonoBehaviour
         }  
     }
 
-
+    // - Dit is voor het bewegen van de speler en voldoet niet aan SRP
+    // -  aangezien het in hetzelfde script staat dat vele andere functies heeft.
 
     // Movement
     void movementLoop()
@@ -210,6 +211,10 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    // - Dit is in de speler class en voldoet niet aan SRP
+    // - Deze code update de speler zijn HUD
+    // * Sorry voor de slechte syntax, is oude code :(
 
 
     // Update hud elements

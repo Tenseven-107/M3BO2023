@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Oude code dus syntax niet heel mooi :(,
-    //vooral snel het oude script opnieuw gebruikt
-    //want is heel veel
+    // - En hier maken we de functie van bewegen afzonderlijk ! Nu voldoet het wel aan SRP
 
     // Movement vars
     public Vector2 velocity;

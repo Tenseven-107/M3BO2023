@@ -5,6 +5,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class UpdateHud : MonoBehaviour
 {
+    // - En dit is de gerefactorde code voor het updaten van de hud
 
     Entity entity;
     PlayerHud hud;
